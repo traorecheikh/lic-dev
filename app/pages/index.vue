@@ -127,65 +127,133 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
       </div>
     </section>
 
-    <!-- Why Us -->
-    <section class="py-24 bg-lic-light">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="max-w-2xl mb-16">
-          <h2 class="text-4xl md:text-5xl font-black text-lic-dark mb-4 tracking-tight">
-            Pourquoi Choisir LIC?
+    <!-- Why Us Redesigned -->
+    <section class="py-24 bg-gray-50 relative overflow-hidden">
+      <!-- Decorative blobs -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-lic-blue/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-lic-orange/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <h2 class="text-4xl md:text-5xl font-black text-lic-dark mb-6 tracking-tight">
+            Pourquoi les Leaders nous Choisissent
           </h2>
-          <p class="text-lg text-gray-600">
-            Une expertise reconnue au service de votre réussite
+          <p class="text-xl text-gray-600">
+            Nous ne fournissons pas seulement du code, nous livrons de la valeur commerciale tangible.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Équipe Expérimentée</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              50+ professionnels avec 15+ années d'expertise combinée en technologies modernes.
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <!-- Feature 1 -->
+          <div class="group bg-white p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-lic-blue transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-lic-blue group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-lic-dark mb-4">Vitesse & Agilité</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Nous utilisons des méthodologies agiles pour livrer des produits fonctionnels rapidement, réduisant votre time-to-market de 40%.
             </p>
           </div>
 
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Approche Pragmatique</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Solutions réalistes adaptées à votre contexte et votre budget, pas de solutions génériques.
+          <!-- Feature 2 -->
+          <div class="group bg-white p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+             <div class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-lic-orange transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-lic-orange group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-lic-dark mb-4">Qualité Mondiale</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Nos standards de développement rivalisent avec la Silicon Valley. Code propre, tests rigoureux et architecture scalable.
             </p>
           </div>
 
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Partenariat à Long Terme</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Nous ne sommes pas juste des prestataires, mais vos partenaires de transformation.
-            </p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Impact Africain</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Expertise mondiale avec une compréhension profonde du contexte africain.
-            </p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Qualité & Normes</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Standards internationaux en sécurité, performance et bonnes pratiques.
-            </p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Support Continu</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Maintenance, amélioration et support 24/7 pour la continuité de votre activité.
+          <!-- Feature 3 -->
+          <div class="group bg-white p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+             <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-lic-dark transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-lic-dark mb-4">Partenaire Local</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Une compréhension profonde du marché africain combinée à une expertise technique pour des solutions qui marchent vraiment ici.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <CallToAction />
+    <!-- Featured Projects Preview -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+          <div>
+            <h2 class="text-3xl font-black text-lic-dark mb-2">Réalisations Récentes</h2>
+            <p class="text-gray-600">Un aperçu de notre savoir-faire.</p>
+          </div>
+          <NuxtLink to="/portfolio" class="hidden md:inline-flex items-center font-bold text-lic-blue hover:text-lic-orange transition-colors">
+            Voir tout le portfolio <span class="ml-2">→</span>
+          </NuxtLink>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+            <img src="@/assets/project1.png" alt="Projet 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">FinTech</span>
+              <h3 class="text-white text-xl font-bold">Plateforme de Paiement</h3>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+            <img src="@/assets/project2.png" alt="Projet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">E-Santé</span>
+              <h3 class="text-white text-xl font-bold">Gestion Hospitalière</h3>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+             <img src="@/assets/project3.png" alt="Projet 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">Éducation</span>
+              <h3 class="text-white text-xl font-bold">LMS Universitaire</h3>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 text-center md:hidden">
+           <NuxtLink to="/portfolio" class="inline-flex items-center font-bold text-lic-blue hover:text-lic-orange transition-colors">
+            Voir tout le portfolio <span class="ml-2">→</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- New High-Impact CTA -->
+    <section class="relative py-32 overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="@/assets/mission.png" alt="Background" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-lic-dark/90 backdrop-blur-sm"></div>
+      </div>
+      
+      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
+          Prêt à construire le futur ?
+        </h2>
+        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Discutons de votre projet. Que vous soyez une startup ambitieuse ou une grande entreprise, nous avons l'expertise pour vous propulser.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+          <NuxtLink to="/contact" class="bg-lic-orange hover:bg-orange-600 text-white text-lg font-bold px-10 py-5 rounded-full shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-1">
+            Lancer mon Projet
+          </NuxtLink>
+          <NuxtLink to="/equipe" class="bg-transparent border-2 border-white text-white text-lg font-bold px-10 py-5 rounded-full hover:bg-white hover:text-lic-dark transition-all duration-300">
+            Rencontrer l'Équipe
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
