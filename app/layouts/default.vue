@@ -41,12 +41,14 @@ const closeMobileMenu = () => {
             <NuxtLink to="/portfolio" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Nos Réalisations
             </NuxtLink>
-            <NuxtLink to="/contact" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
-              Contact
-            </NuxtLink>
           </nav>
 
           <div class="flex items-center gap-4">
+             <!-- CTA Button (Desktop) -->
+            <NuxtLink to="/contact" class="hidden sm:block text-white font-bold text-sm px-6 py-2.5 transition hover:opacity-90" style="background-color: #FF5722;">
+              Contactez-nous
+            </NuxtLink>
+
             <!-- Mobile Menu Button -->
             <button @click="toggleMobileMenu" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,8 +77,8 @@ const closeMobileMenu = () => {
         <NuxtLink to="/portfolio" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
           Nos Réalisations
         </NuxtLink>
-        <NuxtLink to="/contact" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
-          Contact
+        <NuxtLink to="/contact" class="text-center text-white font-bold text-sm px-6 py-3 mt-2 transition hover:opacity-90" style="background-color: #FF5722;" @click="closeMobileMenu">
+          Contactez-nous
         </NuxtLink>
       </div>
     </header> <!-- Re-added closing header tag -->
