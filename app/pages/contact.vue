@@ -118,6 +118,7 @@
                   class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
                 >
                   <option value="">Sélectionner un sujet</option>
+                  <option value="demo">Demande de Démo</option>
                   <option value="formation">Formation IT</option>
                   <option value="developpement">Développement</option>
                   <option value="cloud">Cloud & DevOps</option>
@@ -196,23 +197,6 @@
             <h3 class="text-lg font-bold text-lic-dark mb-3">Comment sont facturés vos services?</h3>
             <p class="text-gray-600">Nous proposons plusieurs modèles: par projet, temps dédié (T&M), ou support à long terme. Discutons de ce qui convient le mieux à votre situation.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-20 bg-lic-dark">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-black text-white mb-6">
-          Prêt à Démarrer?
-        </h2>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-          <a href="tel:+221772306078" class="inline-block bg-lic-orange hover:bg-orange-600 text-white px-10 py-4 font-bold transition duration-300">
-            Appeler Maintenant
-          </a>
-          <a href="mailto:contact@loitconsulting.com" class="inline-block border-2 border-lic-orange text-lic-orange hover:bg-lic-orange hover:text-white px-10 py-4 font-bold transition duration-300">
-            Envoyer un Email
-          </a>
         </div>
       </div>
     </section>
