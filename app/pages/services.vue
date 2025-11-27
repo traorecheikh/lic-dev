@@ -195,11 +195,5 @@ const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4ba
       </div>
     </section>
 
-    <!-- CTA -->
-    <CallToAction 
-      title="Prêt à Transformer Votre Entreprise?"
-      description="Contactez-nous pour explorer comment LIC peut vous aider à atteindre vos objectifs digitaux."
-      button-text="Planifier une Consultation"
-    />
   </div>
 </template>

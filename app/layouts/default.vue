@@ -1,5 +1,16 @@
 <script setup>
+import { ref } from 'vue'
 import licLogo from '~/assets/LIC.png'
+
+const mobileMenuOpen = ref(false)
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>
 
 <template>
@@ -9,12 +20,12 @@ import licLogo from '~/assets/LIC.png'
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <!-- Logo -->
-          <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition">
+          <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
             <img :src="licLogo" alt="LIC Logo" class="h-12" />
           </NuxtLink>
 
-          <!-- Navigation Menu -->
-          <nav class="hidden md:flex items-center gap-12">
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden md:flex items-center gap-8">
             <NuxtLink to="/" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Accueil
             </NuxtLink>
@@ -28,20 +39,50 @@ import licLogo from '~/assets/LIC.png'
               Équipe
             </NuxtLink>
             <NuxtLink to="/portfolio" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
-              Portfolio
+              Nos Réalisations
+            </NuxtLink>
+            <NuxtLink to="/contact" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+              Contact
             </NuxtLink>
           </nav>
 
-          <!-- CTA Button -->
-          <NuxtLink to="/contact" class="text-white font-bold text-sm px-6 py-2.5 transition hover:opacity-90" style="background-color: #FF5722;">
-            Devis
-          </NuxtLink>
+          <div class="flex items-center gap-4">
+            <!-- Mobile Menu Button -->
+            <button @click="toggleMobileMenu" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div v-if="mobileMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-200 shadow-lg py-4 px-6 flex flex-col gap-4 z-40">
+        <NuxtLink to="/" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Accueil
+        </NuxtLink>
+        <NuxtLink to="/about" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          À Propos
+        </NuxtLink>
+        <NuxtLink to="/services" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Services
+        </NuxtLink>
+        <NuxtLink to="/equipe" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Équipe
+        </NuxtLink>
+        <NuxtLink to="/portfolio" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Nos Réalisations
+        </NuxtLink>
+        <NuxtLink to="/contact" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Contact
+        </NuxtLink>
+      </div>
+    </header> <!-- Re-added closing header tag -->
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="flex-grow" @click="closeMobileMenu">
       <slot />
     </main>
 

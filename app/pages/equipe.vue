@@ -105,12 +105,6 @@
         </div>
     </section>
 
-    <CallToAction 
-      title="Envie de faire partie de l'aventure ?"
-      description="Contactez-nous pour discuter de votre avenir chez LIC."
-      button-text="Contactez-nous"
-      button-link="/contact"
-    />
   </div>
 </template>
 

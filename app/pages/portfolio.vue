@@ -76,7 +76,7 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
-                En savoir plus →
+                Demander une Démo →
               </NuxtLink>
             </div>
           </div>
@@ -108,7 +108,7 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
-                En savoir plus →
+                Demander une Démo →
               </NuxtLink>
             </div>
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
@@ -146,7 +146,7 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
-                En savoir plus →
+                Demander une Démo →
               </NuxtLink>
             </div>
           </div>
@@ -226,11 +226,5 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
       </div>
     </section>
 
-    <!-- CTA -->
-    <CallToAction 
-      title="Prêt pour votre Prochain Projet?"
-      description="Explorez comment LIC peut transformer votre vision en réalité."
-      button-text="Nous Contacter"
-    />
   </div>
 </template>

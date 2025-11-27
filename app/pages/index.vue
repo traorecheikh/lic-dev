@@ -18,8 +18,8 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
             <NuxtLink to="/services" class="bg-lic-blue hover:bg-blue-700 text-white px-8 py-4 font-bold text-center transition duration-300">
               Découvrir les Services
             </NuxtLink>
-            <NuxtLink to="/contact" class="border-2 border-lic-dark text-lic-dark hover:bg-lic-light px-8 py-4 font-bold text-center transition duration-300">
-              Demander un Devis
+            <NuxtLink to="/portfolio" class="border-2 border-lic-dark text-lic-dark hover:bg-lic-light px-8 py-4 font-bold text-center transition duration-300">
+              Nos Réalisations
             </NuxtLink>
           </div>
         </div>
@@ -226,31 +226,6 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
         <div class="mt-8 text-center md:hidden">
            <NuxtLink to="/portfolio" class="inline-flex items-center font-bold text-lic-blue hover:text-lic-orange transition-colors">
             Voir tout le portfolio <span class="ml-2">→</span>
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
-
-    <!-- New High-Impact CTA -->
-    <section class="relative py-32 overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="@/assets/mission.png" alt="Background" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-lic-dark/90 backdrop-blur-sm"></div>
-      </div>
-      
-      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
-          Prêt à construire le futur ?
-        </h2>
-        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Discutons de votre projet. Que vous soyez une startup ambitieuse ou une grande entreprise, nous avons l'expertise pour vous propulser.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <NuxtLink to="/contact" class="bg-lic-orange hover:bg-orange-600 text-white text-lg font-bold px-10 py-5 rounded-full shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:-translate-y-1">
-            Lancer mon Projet
-          </NuxtLink>
-          <NuxtLink to="/equipe" class="bg-transparent border-2 border-white text-white text-lg font-bold px-10 py-5 rounded-full hover:bg-white hover:text-lic-dark transition-all duration-300">
-            Rencontrer l'Équipe
           </NuxtLink>
         </div>
       </div>
