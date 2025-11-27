@@ -171,18 +171,11 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-lic-dark">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-black text-white mb-4">
-          Rejoignez Notre Équipe
-        </h2>
-        <p class="text-lg text-gray-300 mb-10">
-          Nous recrutons constamment les meilleurs talents. Envoyez-nous votre CV!
-        </p>
-        <a href="mailto:careers@loitconsulting.com" class="inline-block bg-lic-orange hover:bg-orange-600 text-white px-10 py-4 font-bold transition duration-300">
-          Nous Contacter
-        </a>
-      </div>
-    </section>
+    <CallToAction 
+      title="Rejoignez Notre Équipe"
+      description="Nous recrutons constamment les meilleurs talents. Envoyez-nous votre CV!"
+      button-text="Nous Contacter"
+      button-link="/contact"
+    />
   </div>
 </template>

@@ -1,3 +1,9 @@
+<script setup>
+const projectImg1 = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Finance/Mobile Banking
+const projectImg2 = 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // E-commerce
+const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Real Estate
+</script>
+
 <template>
   <div class="bg-white">
     <!-- Hero -->
@@ -25,7 +31,7 @@
             <p class="text-gray-300">Clients Satisfaits</p>
           </div>
           <div>
-            <p class="text-5xl font-black text-lic-orange mb-2">$50M+</p>
+            <p class="text-5xl font-black text-lic-orange mb-2">30 Mrd+ FCFA</p>
             <p class="text-gray-300">Valeur Créée</p>
           </div>
           <div>
@@ -42,7 +48,9 @@
         <div class="space-y-16">
           <!-- Case Study 1 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange"></div>
+            <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
+              <img :src="projectImg1" alt="Banque Africaine Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+            </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
               <h2 class="text-3xl font-black text-lic-dark mb-4">Banque Africaine</h2>
@@ -103,17 +111,21 @@
                 En savoir plus →
               </NuxtLink>
             </div>
-            <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange order-2 md:order-1"></div>
+            <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
+              <img :src="projectImg2" alt="E-commerce Sénégalais Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+            </div>
           </div>
 
           <!-- Case Study 3 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange"></div>
+            <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
+              <img :src="projectImg3" alt="Startup PropTech Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+            </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
               <h2 class="text-3xl font-black text-lic-dark mb-4">Startup PropTech</h2>
               <p class="text-gray-600 mb-6 leading-relaxed">
-                Développement d'application mobile immobilière avec matching IA. Levée de fonds réussie de $2M, 50k utilisateurs actifs.
+                Développement d'application mobile immobilière avec matching IA. Levée de fonds réussie de 1.2 Mrd FCFA, 50k utilisateurs actifs.
               </p>
               <div class="grid grid-cols-2 gap-4 mb-8">
                 <div>
@@ -130,7 +142,7 @@
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Impact</p>
-                  <p class="font-bold text-lic-dark">$2M levés</p>
+                  <p class="font-bold text-lic-dark">1.2 Mrd FCFA levés</p>
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
@@ -215,18 +227,10 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-lic-dark">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-black text-white mb-4">
-          Prêt pour votre Prochain Projet?
-        </h2>
-        <p class="text-lg text-gray-300 mb-10">
-          Explorez comment LIC peut transformer votre vision en réalité.
-        </p>
-        <NuxtLink to="/contact" class="inline-block bg-lic-orange hover:bg-orange-600 text-white px-10 py-4 font-bold transition duration-300">
-          Nous Contacter
-        </NuxtLink>
-      </div>
-    </section>
+    <CallToAction 
+      title="Prêt pour votre Prochain Projet?"
+      description="Explorez comment LIC peut transformer votre vision en réalité."
+      button-text="Nous Contacter"
+    />
   </div>
 </template>

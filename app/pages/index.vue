@@ -1,9 +1,13 @@
+<script setup>
+const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+</script>
+
 <template>
   <div class="bg-white">
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center bg-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
-        <div class="max-w-2xl">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full flex flex-col lg:flex-row items-center">
+        <div class="max-w-2xl lg:w-1/2">
           <h1 class="text-5xl md:text-7xl font-black text-lic-dark mb-6 leading-tight tracking-tight">
             L'expertise IT au service de l'Afrique Digitale
           </h1>
@@ -19,13 +23,11 @@
             </NuxtLink>
           </div>
         </div>
-      </div>
-      <!-- Right side: stats or visual element -->
-      <div class="hidden lg:block flex-1 ml-12">
-        <div class="h-96 bg-lic-light rounded-lg border-l-4 border-lic-orange flex items-center justify-center">
-          <div class="text-center">
-            <p class="text-4xl font-black text-lic-blue mb-2">200+</p>
-            <p class="text-gray-600 font-medium">Projets Réalisés</p>
+        <!-- Right side: visual element -->
+        <div class="hidden lg:block flex-1 lg:w-1/2 ml-0 lg:ml-12 mt-12 lg:mt-0">
+          <div class="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition duration-700">
+             <div class="absolute inset-0 bg-gradient-to-tr from-lic-blue/30 to-transparent z-10"></div>
+             <img :src="heroImg" alt="Innovation Digitale" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -184,18 +186,6 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-lic-dark">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-black text-white mb-4">
-          Prêt à Transformer votre Entreprise?
-        </h2>
-        <p class="text-lg text-gray-300 mb-10">
-          Contactez-nous pour discuter de vos défis technologiques et explorer les solutions adaptées.
-        </p>
-        <NuxtLink to="/contact" class="inline-block bg-lic-orange hover:bg-orange-600 text-white px-10 py-4 font-bold transition duration-300">
-          Démarrer une Consultation
-        </NuxtLink>
-      </div>
-    </section>
+    <CallToAction />
   </div>
 </template>

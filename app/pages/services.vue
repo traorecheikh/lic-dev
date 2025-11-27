@@ -1,3 +1,10 @@
+<script setup>
+const serviceImg1 = 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Formation: Diverse team learning
+const serviceImg2 = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Dev: Coding on screen
+const serviceImg3 = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Cloud: Tech network/globe
+const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Conseil: Professional meeting
+</script>
+
 <template>
   <div class="bg-white">
     <!-- Hero -->
@@ -44,12 +51,16 @@
               Demander une Formation →
             </NuxtLink>
           </div>
-          <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange"></div>
+          <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
+            <img :src="serviceImg1" alt="Formation IT" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+          </div>
         </div>
 
         <!-- Service 2 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange order-2 md:order-1"></div>
+          <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
+             <img :src="serviceImg2" alt="Développement Sur Mesure" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+          </div>
           <div class="order-1 md:order-2">
             <h2 class="text-4xl font-black text-lic-dark mb-6 tracking-tight">Développement Sur Mesure</h2>
             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -108,12 +119,16 @@
               Planifier votre Migration →
             </NuxtLink>
           </div>
-          <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange"></div>
+          <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
+             <img :src="serviceImg3" alt="Cloud & DevOps" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+          </div>
         </div>
 
         <!-- Service 4 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="bg-lic-light h-80 rounded-lg border-l-4 border-lic-orange order-2 md:order-1"></div>
+          <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
+             <img :src="serviceImg4" alt="Conseil Technologique" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+          </div>
           <div class="order-1 md:order-2">
             <h2 class="text-4xl font-black text-lic-dark mb-6 tracking-tight">Conseil Technologique</h2>
             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -181,18 +196,10 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-20 bg-lic-dark">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-black text-white mb-4">
-          Prêt à Transformer Votre Entreprise?
-        </h2>
-        <p class="text-lg text-gray-300 mb-10">
-          Contactez-nous pour explorer comment LIC peut vous aider à atteindre vos objectifs digitaux.
-        </p>
-        <NuxtLink to="/contact" class="inline-block bg-lic-orange hover:bg-orange-600 text-white px-10 py-4 font-bold transition duration-300">
-          Planifier une Consultation
-        </NuxtLink>
-      </div>
-    </section>
+    <CallToAction 
+      title="Prêt à Transformer Votre Entreprise?"
+      description="Contactez-nous pour explorer comment LIC peut vous aider à atteindre vos objectifs digitaux."
+      button-text="Planifier une Consultation"
+    />
   </div>
 </template>
