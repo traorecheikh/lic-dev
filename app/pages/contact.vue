@@ -1,201 +1,186 @@
 <template>
   <div class="bg-white">
-    <!-- Hero -->
-    <section class="py-20 bg-lic-light">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h1 class="text-5xl md:text-6xl font-black text-lic-dark mb-6 tracking-tight">
-          Contactez-Nous
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl">
-          Discutons de vos défis technologiques et explorez comment LIC peut vous aider.
-        </p>
-      </div>
+    <!-- Modern Split Hero (Consistent with other pages) -->
+    <section class="relative bg-lic-dark text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
+            <div class="relative h-96 lg:h-auto overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Contactez-nous"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
+                ></div>
+            </div>
+            <div class="flex items-center p-10 lg:p-24 xl:p-32">
+                <div class="max-w-xl">
+                    <span
+                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
+                        >Parlons de Votre Projet</span
+                    >
+                    <h1
+                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
+                    >
+                        Contactez-Nous
+                    </h1>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                         Discutons de vos défis technologiques et découvrez comment LIC peut accélérer votre transformation digitale.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-24">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <!-- Contact Info -->
-          <div>
-            <h2 class="text-3xl font-black text-lic-dark mb-12">Coordonnées</h2>
-
+    <!-- Contact Section - Balanced Layout -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        
+        <!-- Contact Info Bar (Top) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <!-- Phone -->
-            <div class="mb-12">
-              <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">TÉLÉPHONE</p>
-              <p class="text-2xl font-bold text-lic-dark mb-2">+221 77 230 60 78</p>
-              <p class="text-gray-600">Lundi - Vendredi, 8h00 - 18h00 (GMT)</p>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </div>
+                <h3 class="font-bold text-lic-dark">Téléphone</h3>
+                <p class="text-gray-600 text-sm mt-1">+221 77 230 60 78</p>
             </div>
-
             <!-- Email -->
-            <div class="mb-12">
-              <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">EMAIL</p>
-              <p class="text-2xl font-bold text-lic-dark mb-2">contact@loitconsulting.com</p>
-              <p class="text-gray-600">Réponse en moins de 24h</p>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                <div class="w-12 h-12 bg-lic-blue/10 text-lic-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="font-bold text-lic-dark">Email</h3>
+                <p class="text-gray-600 text-sm mt-1">contact@loitconsulting.com</p>
             </div>
-
             <!-- Address -->
-            <div class="mb-12">
-              <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ADRESSE</p>
-              <p class="text-2xl font-bold text-lic-dark mb-2">CICES FOIRE VILLA 111</p>
-              <p class="text-gray-600">Dakar, Sénégal</p>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3 class="font-bold text-lic-dark">Adresse</h3>
+                <p class="text-gray-600 text-sm mt-1">CICES FOIRE VILLA 111, Dakar</p>
             </div>
-
-            <!-- Social -->
-            <div class="pt-8 border-t border-gray-200">
-              <p class="text-sm font-bold text-lic-orange tracking-widest mb-6">SUIVEZ-NOUS</p>
-              <div class="flex gap-4">
-                <a href="#" class="w-12 h-12 bg-lic-blue text-white rounded-full flex items-center justify-center hover:bg-lic-orange transition">
-                  <span class="text-lg">f</span>
-                </a>
-                <a href="#" class="w-12 h-12 bg-lic-blue text-white rounded-full flex items-center justify-center hover:bg-lic-orange transition">
-                  <span class="text-lg">in</span>
-                </a>
-                <a href="#" class="w-12 h-12 bg-lic-blue text-white rounded-full flex items-center justify-center hover:bg-lic-orange transition">
-                  <span class="text-lg">@</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="bg-lic-light p-12 rounded-lg">
-            <h2 class="text-2xl font-black text-lic-dark mb-8">Envoyer un Message</h2>
-
-            <form @submit.prevent="handleSubmit" class="space-y-6">
-              <!-- Name -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Nom Complet</label>
-                <input
-                  v-model="form.name"
-                  type="text"
-                  required
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
-                  placeholder="Jean Dupont"
-                />
-              </div>
-
-              <!-- Email -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Adresse Email</label>
-                <input
-                  v-model="form.email"
-                  type="email"
-                  required
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
-                  placeholder="jean@exemple.com"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Téléphone (optionnel)</label>
-                <input
-                  v-model="form.phone"
-                  type="tel"
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
-                  placeholder="+221 XX XXX XX XX"
-                />
-              </div>
-
-              <!-- Company -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Entreprise</label>
-                <input
-                  v-model="form.company"
-                  type="text"
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
-                  placeholder="Nom de votre entreprise"
-                />
-              </div>
-
-              <!-- Subject -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Sujet</label>
-                <select
-                  v-model="form.subject"
-                  required
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition"
-                >
-                  <option value="">Sélectionner un sujet</option>
-                  <option value="demo">Demande de Démo</option>
-                  <option value="formation">Formation IT</option>
-                  <option value="developpement">Développement</option>
-                  <option value="cloud">Cloud & DevOps</option>
-                  <option value="conseil">Conseil Technologique</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              <!-- Message -->
-              <div>
-                <label class="block text-sm font-bold text-lic-dark mb-2">Message</label>
-                <textarea
-                  v-model="form.message"
-                  rows="5"
-                  required
-                  class="w-full px-4 py-3 border-b-2 border-lic-dark bg-transparent focus:outline-none focus:border-lic-orange transition resize-none"
-                  placeholder="Décrivez votre projet ou votre question..."
-                ></textarea>
-              </div>
-
-              <!-- Submit -->
-              <div>
-                <button
-                  type="submit"
-                  class="w-full bg-lic-blue hover:bg-blue-700 text-white font-bold py-3 transition duration-300 mt-4"
-                >
-                  Envoyer le Message
-                </button>
-              </div>
-
-              <!-- Success Message -->
-              <div v-if="submitted" class="bg-green-50 border-l-4 border-green-600 text-green-700 px-4 py-3 rounded mt-4">
-                <p class="font-bold">Message Envoyé!</p>
-                <p class="text-sm">Merci pour votre message. Nous vous recontacterons rapidement.</p>
-              </div>
-            </form>
-          </div>
         </div>
+
+        <!-- Main Form Card (Centered) -->
+        <div class="bg-white rounded-3xl shadow-2xl p-10 lg:p-16 border border-gray-100 relative overflow-hidden">
+            <!-- Decorative background blob -->
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-lic-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black text-lic-dark">Envoyer un Message</h2>
+                    <p class="text-gray-500 mt-2">Remplissez le formulaire ci-dessous et nous vous répondrons sous 24h.</p>
+                </div>
+
+                <form @submit.prevent="handleSubmit" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-lic-dark mb-2">Nom Complet</label>
+                            <input
+                                v-model="form.name"
+                                type="text"
+                                required
+                                class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
+                                placeholder="Votre nom"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-lic-dark mb-2">Email</label>
+                            <input
+                                v-model="form.email"
+                                type="email"
+                                required
+                                class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
+                                placeholder="votre@email.com"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-lic-dark mb-2">Téléphone</label>
+                            <input
+                                v-model="form.phone"
+                                type="tel"
+                                class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
+                                placeholder="+221..."
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-lic-dark mb-2">Sujet</label>
+                            <select
+                                v-model="form.subject"
+                                required
+                                class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
+                            >
+                                <option value="">Sélectionner un sujet</option>
+                                <option value="devis">Demande de Devis</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="recrutement">Recrutement</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-lic-dark mb-2">Message</label>
+                        <textarea
+                            v-model="form.message"
+                            rows="6"
+                            required
+                            class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition resize-none"
+                            placeholder="Dites-nous en plus sur votre projet..."
+                        ></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button
+                            type="submit"
+                            class="bg-lic-orange hover:bg-orange-600 text-white font-bold px-10 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg inline-flex items-center"
+                        >
+                            Envoyer le Message
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </button>
+                    </div>
+
+                    <!-- Success Message -->
+                    <div v-if="submitted" class="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-xl mt-6 text-center">
+                        <p class="font-bold">Message Envoyé! ✓</p>
+                        <p class="text-sm mt-1">Merci. Nous vous recontacterons très bientôt.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-24 bg-lic-light">
+    <section class="py-24 bg-white border-t border-gray-100">
       <div class="max-w-4xl mx-auto px-6 lg:px-8">
-        <h2 class="text-4xl font-black text-lic-dark mb-16 tracking-tight text-center">
+        <h2 class="text-3xl font-black text-lic-dark mb-12 tracking-tight text-center">
           Questions Fréquentes
         </h2>
 
-        <div class="space-y-6">
-          <!-- FAQ 1 -->
-          <div class="bg-white p-8 rounded-lg border-l-4 border-lic-orange">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Quel est votre délai de réponse?</h3>
-            <p class="text-gray-600">Nous répondons à tous les messages dans les 24 heures. Pour les demandes urgentes, appelez-nous directement au +221 77 230 60 78.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <h3 class="font-bold text-lic-dark mb-2">Quel est votre délai de réponse?</h3>
+            <p class="text-sm text-gray-600">Nous répondons sous 24h ouvrées.</p>
           </div>
-
-          <!-- FAQ 2 -->
-          <div class="bg-white p-8 rounded-lg border-l-4 border-lic-orange">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Offrez-vous une consultation gratuite?</h3>
-            <p class="text-gray-600">Oui! Nous proposons une consultation initiale gratuite de 30 minutes pour comprendre vos besoins et discuter de solutions potentielles.</p>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <h3 class="font-bold text-lic-dark mb-2">La consultation est-elle gratuite?</h3>
+            <p class="text-sm text-gray-600">Oui, le premier échange est 100% gratuit.</p>
           </div>
-
-          <!-- FAQ 3 -->
-          <div class="bg-white p-8 rounded-lg border-l-4 border-lic-orange">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Travaillez-vous avec des entreprises de toutes tailles?</h3>
-            <p class="text-gray-600">Absolument! De la PME à la grande entreprise, nous adaptons nos services à votre taille, vos besoins et votre budget.</p>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <h3 class="font-bold text-lic-dark mb-2">Où êtes-vous situés?</h3>
+            <p class="text-sm text-gray-600">Nous sommes basés à Dakar, mais opérons partout.</p>
           </div>
-
-          <!-- FAQ 4 -->
-          <div class="bg-white p-8 rounded-lg border-l-4 border-lic-orange">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Proposez-vous du support après la livraison?</h3>
-            <p class="text-gray-600">Oui, nous proposons des contrats de maintenance et support à long terme pour assurer la performance continue de votre solution.</p>
-          </div>
-
-          <!-- FAQ 5 -->
-          <div class="bg-white p-8 rounded-lg border-l-4 border-lic-orange">
-            <h3 class="text-lg font-bold text-lic-dark mb-3">Comment sont facturés vos services?</h3>
-            <p class="text-gray-600">Nous proposons plusieurs modèles: par projet, temps dédié (T&M), ou support à long terme. Discutons de ce qui convient le mieux à votre situation.</p>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <h3 class="font-bold text-lic-dark mb-2">Recrutez-vous?</h3>
+            <p class="text-sm text-gray-600">Consultez notre page LinkedIn pour les offres.</p>
           </div>
         </div>
       </div>
@@ -204,6 +189,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+useHead({
+  title: 'Contact - LO IT CONSULTING',
+  meta: [
+    { name: 'description', content: 'Contactez notre équipe pour discuter de votre projet de transformation digitale.' }
+  ]
+})
+
 const form = ref({
   name: '',
   email: '',
@@ -217,9 +211,9 @@ const submitted = ref(false)
 
 const handleSubmit = async () => {
   console.log('Form submitted:', form.value)
-
   submitted.value = true
-
+  
+  // Reset form
   form.value = {
     name: '',
     email: '',

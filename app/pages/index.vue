@@ -2,15 +2,15 @@
 import { ref, onMounted } from 'vue'
 import { useRollingNumbers } from '~/composables/useRollingNumbers'
 
-// Import partner logos using relative paths to ensure resolution
-import orangeLogo from '../assets/partners/orange.svg'
-import waveLogo from '../assets/partners/wave.png'
-import ecobankLogo from '../assets/partners/ecobank.png'
-import freeLogo from '../assets/partners/free.png'
-import sgLogo from '../assets/partners/sg.png'
-import cbaoLogo from '../assets/partners/cbao.png'
-import auchanLogo from '../assets/partners/auchan.png'
-import canalLogo from '../assets/partners/canal.png'
+// Import partner logos using standard Nuxt aliases
+import orangeLogo from '~/assets/partners/orange.svg'
+import waveLogo from '~/assets/partners/wave.png'
+import ecobankLogo from '~/assets/partners/ecobank.png'
+import freeLogo from '~/assets/partners/free.png'
+import sgLogo from '~/assets/partners/sg.png'
+import cbaoLogo from '~/assets/partners/cbao.png'
+import auchanLogo from '~/assets/partners/auchan.png'
+import canalLogo from '~/assets/partners/canal.png'
 
 const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
 
@@ -43,7 +43,7 @@ onMounted(() => {
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
              <img :src="heroImg" alt="Innovation Digitale" class="w-full h-full object-cover opacity-40" />
-             <div class="absolute inset-0 bg-gradient-to-b from-lic-dark/90 via-lic-dark/40 to-lic-dark/90"></div>
+             <div class="absolute inset-0 bg-gradient-to-b from-lic-dark/90 via-lic-dark/40 to-transparent opacity-90"></div>
         </div>
 
         <!-- Content -->
