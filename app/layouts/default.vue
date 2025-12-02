@@ -46,10 +46,15 @@ const closeMobileMenu = () => {
             </NuxtLink>
           </nav>
 
-          <div class="flex items-center gap-4">
-             <!-- CTA Button (Desktop) -->
-            <NuxtLink to="/contact" class="hidden sm:block text-white font-bold text-sm px-6 py-2.5 transition hover:opacity-90" style="background-color: #FF5722;">
-              Contactez-nous
+          <div class="flex items-center gap-3">
+             <!-- Demo Button (Primary) -->
+            <NuxtLink to="/contact" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #FF5722;">
+              Demander une Démo
+            </NuxtLink>
+
+            <!-- Contact Button (Secondary - Outlined) -->
+            <NuxtLink to="/contact" class="hidden sm:block text-lic-blue font-bold text-sm px-5 py-2.5 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white">
+              Nous Contacter
             </NuxtLink>
 
             <!-- Mobile Menu Button -->
@@ -83,9 +88,14 @@ const closeMobileMenu = () => {
         <NuxtLink to="/formation-gratuite" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
           Formation Gratuite
         </NuxtLink>
-        <NuxtLink to="/contact" class="text-center text-white font-bold text-sm px-6 py-3 mt-2 transition hover:opacity-90" style="background-color: #FF5722;" @click="closeMobileMenu">
-          Contactez-nous
-        </NuxtLink>
+        <div class="flex flex-col gap-3 mt-4">
+          <NuxtLink to="/contact" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #FF5722;" @click="closeMobileMenu">
+            Demander une Démo
+          </NuxtLink>
+          <NuxtLink to="/contact" class="text-center text-lic-blue font-bold text-sm px-6 py-3 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white" @click="closeMobileMenu">
+            Nous Contacter
+          </NuxtLink>
+        </div>
       </div>
     </header> <!-- Re-added closing header tag -->
 

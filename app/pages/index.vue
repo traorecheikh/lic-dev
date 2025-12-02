@@ -1,5 +1,39 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { useRollingNumbers } from '~/composables/useRollingNumbers'
+
+// Import partner logos using relative paths to ensure resolution
+import orangeLogo from '../assets/partners/orange.svg'
+import waveLogo from '../assets/partners/wave.png'
+import ecobankLogo from '../assets/partners/ecobank.png'
+import freeLogo from '../assets/partners/free.png'
+import sgLogo from '../assets/partners/sg.png'
+import cbaoLogo from '../assets/partners/cbao.png'
+import auchanLogo from '../assets/partners/auchan.png'
+import canalLogo from '../assets/partners/canal.png'
+
 const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+
+const { animateOnIntersection } = useRollingNumbers()
+
+const projects = ref(0)
+const satisfaction = ref(0)
+const years = ref(0)
+
+const partners = [
+  { name: 'Sonatel Orange', url: orangeLogo },
+  { name: 'Wave', url: waveLogo },
+  { name: 'Ecobank', url: ecobankLogo },
+  { name: 'Free', url: freeLogo },
+  { name: 'Société Générale', url: sgLogo },
+  { name: 'CBAO', url: cbaoLogo },
+  { name: 'Auchan', url: auchanLogo },
+  { name: 'Canal+', url: canalLogo },
+]
+
+onMounted(() => {
+  animateOnIntersection('.stat-number', [200, 98, 15], 3)
+})
 </script>
 
 <template>
@@ -44,25 +78,26 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div class="p-6 rounded-2xl hover:bg-white/5 transition duration-300">
-            <p class="text-6xl font-black text-lic-orange mb-4">200+</p>
+            <p class="text-6xl font-black text-lic-orange mb-4"><span class="stat-number">0</span>+</p>
             <p class="text-xl text-gray-300 font-medium uppercase tracking-wider">Projets Réalisés</p>
           </div>
           <div class="p-6 rounded-2xl hover:bg-white/5 transition duration-300">
-            <p class="text-6xl font-black text-lic-orange mb-4">98%</p>
+            <p class="text-6xl font-black text-lic-orange mb-4"><span class="stat-number">0</span>%</p>
             <p class="text-xl text-gray-300 font-medium uppercase tracking-wider">Clients Satisfaits</p>
           </div>
           <div class="p-6 rounded-2xl hover:bg-white/5 transition duration-300">
-            <p class="text-6xl font-black text-lic-orange mb-4">15+</p>
+            <p class="text-6xl font-black text-lic-orange mb-4"><span class="stat-number">0</span>+</p>
             <p class="text-xl text-gray-300 font-medium uppercase tracking-wider">Années d'Expertise</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Preview -->
-    <section class="py-24 bg-white">
+    <!-- Services Preview - Modern Visual Cards -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="max-w-2xl mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block">Nos Services</span>
           <h2 class="text-4xl md:text-5xl font-black text-lic-dark mb-4 tracking-tight">
             Nos Domaines d'Expertise
           </h2>
@@ -71,66 +106,118 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Service 1 -->
-          <div class="border-l-4 border-lic-orange p-8 hover:bg-lic-light transition duration-300">
-            <h3 class="text-xl font-bold text-lic-dark mb-3">Formation IT</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Développez les compétences de votre équipe avec nos programmes de formation reconnus.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>• Web Development</li>
-              <li>• Mobile Apps</li>
-              <li>• DevOps & Cloud</li>
-            </ul>
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          <!-- Service 1: Formation IT -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Formation IT" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
+              <div class="mt-auto">
+                <h3 class="text-4xl font-black mb-4 leading-tight">Formation IT</h3>
+                <p class="text-gray-100 leading-relaxed mb-6">Développez les compétences de votre équipe avec nos programmes de formation reconnus, conçus par des experts de l'industrie.</p>
+                <div class="space-y-3 text-sm text-gray-200 mb-8">
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Web Development, React, Vue.js</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Mobile Apps: React Native, Flutter</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> DevOps & Cloud, Certifications</p>
+                </div>
+                <NuxtLink to="/services" class="inline-block bg-lic-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                  Demander une Formation →
+                </NuxtLink>
+              </div>
+            </div>
           </div>
 
-          <!-- Service 2 -->
-          <div class="border-l-4 border-lic-orange p-8 hover:bg-lic-light transition duration-300">
-            <h3 class="text-xl font-bold text-lic-dark mb-3">Développement</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Solutions technologiques sur mesure adaptées à vos besoins spécifiques.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>• Frontend & Backend</li>
-              <li>• Applications Mobiles</li>
-              <li>• APIs & Intégrations</li>
-            </ul>
+          <!-- Service 2: Développement Sur Mesure -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Développement" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
+              <div class="mt-auto">
+                <h3 class="text-4xl font-black mb-4 leading-tight">Développement Sur Mesure</h3>
+                <p class="text-gray-100 leading-relaxed mb-6">Solutions technologiques robustes et scalables, adaptées à vos besoins spécifiques. De la conception à la livraison.</p>
+                <div class="space-y-3 text-sm text-gray-200 mb-8">
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Frontend: React, Vue.js, TypeScript</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Backend: Node.js, Python, Java</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Mobile & APIs: iOS, Android</p>
+                </div>
+                <NuxtLink to="/services" class="inline-block bg-lic-blue hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                  Discuter de Votre Projet →
+                </NuxtLink>
+              </div>
+            </div>
           </div>
 
-          <!-- Service 3 -->
-          <div class="border-l-4 border-lic-orange p-8 hover:bg-lic-light transition duration-300">
-            <h3 class="text-xl font-bold text-lic-dark mb-3">Cloud & DevOps</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Infrastructure moderne, sécurisée et scalable pour votre croissance.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>• AWS & Azure</li>
-              <li>• Containerization</li>
-              <li>• CI/CD Pipelines</li>
-            </ul>
+          <!-- Service 3: Cloud & DevOps -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+            <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cloud & DevOps" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
+              <div class="mt-auto">
+                <h3 class="text-4xl font-black mb-4 leading-tight">Cloud & DevOps</h3>
+                <p class="text-gray-100 leading-relaxed mb-6">Infrastructure moderne et sécurisée. De la migration à la gestion continue, nous assurons la scalabilité.</p>
+                <div class="space-y-3 text-sm text-gray-200 mb-8">
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Cloud Platforms: AWS, Azure, GCP</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Containerization: Docker, K8s</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> CI/CD & Monitoring: GitHub Actions</p>
+                </div>
+                <NuxtLink to="/services" class="inline-block bg-lic-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                  Planifier votre Migration →
+                </NuxtLink>
+              </div>
+            </div>
           </div>
 
-          <!-- Service 4 -->
-          <div class="border-l-4 border-lic-orange p-8 hover:bg-lic-light transition duration-300">
-            <h3 class="text-xl font-bold text-lic-dark mb-3">Conseil Tech</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Guidance stratégique pour naviguer votre transformation digitale.
-            </p>
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>• Audit Technologique</li>
-              <li>• Stratégie IT</li>
-              <li>• Sécurité & Compliance</li>
-            </ul>
+          <!-- Service 4: Conseil Technologique -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Conseil Tech" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
+              <div class="mt-auto">
+                <h3 class="text-4xl font-black mb-4 leading-tight">Conseil Technologique</h3>
+                <p class="text-gray-100 leading-relaxed mb-6">Guidance stratégique pour naviguer votre transformation digitale. Alignez la technologie avec vos objectifs métier.</p>
+                <div class="space-y-3 text-sm text-gray-200 mb-8">
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Audit Technologique complet</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Stratégie IT & Digital Transformation</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Sécurité & Compliance Réglementaire</p>
+                </div>
+                <NuxtLink to="/services" class="inline-block bg-lic-blue hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                  Demander une Consultation →
+                </NuxtLink>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="mt-12 text-center">
-          <NuxtLink to="/services" class="text-lic-blue hover:text-lic-orange font-bold transition">
-            Voir Tous les Services →
+        <div class="mt-16 text-center">
+          <NuxtLink to="/services" class="inline-flex items-center bg-lic-dark text-white hover:bg-lic-blue font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Voir Tous les Services <span class="ml-3 text-xl">→</span>
           </NuxtLink>
         </div>
       </div>
+    </section>
+
+    <!-- Partners / Trust Section -->
+    <section class="py-16 bg-white border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
+             <p class="text-gray-400 font-bold uppercase tracking-widest text-sm">ILS NOUS FONT CONFIANCE</p>
+        </div>
+        
+        <div class="relative flex overflow-x-hidden group">
+            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-24 px-12">
+                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                 <!-- Duplicate for seamless loop -->
+                <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            </div>
+            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-24 px-12">
+               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                <!-- Duplicate for seamless loop -->
+               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            </div>
+             <!-- Fade effect sides -->
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+        </div>
     </section>
 
     <!-- Why Us Redesigned -->
@@ -248,3 +335,20 @@ const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ix
     </section>
   </div>
 </template>
+
+<style scoped>
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee2 {
+  animation: marquee2 40s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes marquee2 {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+</style>
