@@ -7,16 +7,36 @@ const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4ba
 
 <template>
   <div class="bg-white">
-    <!-- Hero -->
-    <section class="py-20 bg-lic-light">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h1 class="text-5xl md:text-6xl font-black text-lic-dark mb-6 tracking-tight">
-          Nos Services
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl">
-          Solutions complètes pour accompagner votre transformation digitale de bout en bout.
-        </p>
-      </div>
+    <!-- Modern Split Hero -->
+    <section class="relative bg-lic-dark text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
+            <div class="relative h-96 lg:h-auto overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Nos Services"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
+                ></div>
+            </div>
+            <div class="flex items-center p-10 lg:p-24 xl:p-32">
+                <div class="max-w-xl">
+                    <span
+                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
+                        >Ce que nous faisons</span
+                    >
+                    <h1
+                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
+                    >
+                        Nos Services
+                    </h1>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                         Solutions complètes pour accompagner votre transformation digitale de bout en bout.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Services -->

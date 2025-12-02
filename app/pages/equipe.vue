@@ -1,18 +1,35 @@
 <template>
   <div class="bg-white">
-    <!-- Hero Section -->
-    <section class="relative py-20 bg-lic-light overflow-hidden">
-      <div class="absolute inset-0 opacity-10 bg-[url('/assets/pattern.png')]"></div> <!-- Optional pattern -->
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div class="text-center max-w-3xl mx-auto">
-          <h1 class="text-5xl md:text-6xl font-black text-lic-dark mb-6 tracking-tight">
-            Rencontrez <span class="text-lic-blue">l'Équipe</span>
-          </h1>
-          <p class="text-xl text-gray-600 leading-relaxed">
-            Une équipe passionnée et experte, unie par une vision commune : transformer vos idées en réalités numériques impactantes.
-          </p>
+    <!-- Modern Split Hero -->
+    <section class="relative bg-lic-dark text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
+            <div class="relative h-96 lg:h-auto overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    alt="Notre Équipe"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
+                ></div>
+            </div>
+            <div class="flex items-center p-10 lg:p-24 xl:p-32">
+                <div class="max-w-xl">
+                     <span
+                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
+                        >Nos Talents</span
+                    >
+                    <h1
+                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
+                    >
+                        Rencontrez <span class="text-lic-blue">l'Équipe</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        Une équipe passionnée et experte, unie par une vision commune : transformer vos idées en réalités numériques impactantes.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Team Grid -->

@@ -6,40 +6,36 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
 
 <template>
   <div class="bg-white">
-    <!-- Hero -->
-    <section class="py-20 bg-lic-light">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h1 class="text-5xl md:text-6xl font-black text-lic-dark mb-6 tracking-tight">
-          Portfolio
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl">
-          Découvrez comment nous avons aidé plus de 200 entreprises à transformer leur infrastructure digitale.
-        </p>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="py-16 bg-lic-dark text-white">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <p class="text-5xl font-black text-lic-orange mb-2">200+</p>
-            <p class="text-gray-300">Projets Réalisés</p>
-          </div>
-          <div>
-            <p class="text-5xl font-black text-lic-orange mb-2">98%</p>
-            <p class="text-gray-300">Clients Satisfaits</p>
-          </div>
-          <div>
-            <p class="text-5xl font-black text-lic-orange mb-2">30 Mrd+ FCFA</p>
-            <p class="text-gray-300">Valeur Créée</p>
-          </div>
-          <div>
-            <p class="text-5xl font-black text-lic-orange mb-2">0</p>
-            <p class="text-gray-300">Projets Échoués</p>
-          </div>
+    <!-- Modern Split Hero -->
+    <section class="relative bg-lic-dark text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
+            <div class="relative h-96 lg:h-auto overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80"
+                    alt="Nos Réalisations"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                />
+                <div
+                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
+                ></div>
+            </div>
+            <div class="flex items-center p-10 lg:p-24 xl:p-32">
+                <div class="max-w-xl">
+                    <span
+                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
+                        >Nos Réalisations</span
+                    >
+                    <h1
+                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
+                    >
+                        Portfolio
+                    </h1>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                         Découvrez comment nous avons aidé plus de 200 entreprises à transformer leur infrastructure digitale.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Case Studies -->
