@@ -154,36 +154,6 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
       </div>
     </section>
 
-    <!-- Services Showcased -->
-    <section class="py-24 bg-lic-light">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 class="text-4xl font-black text-lic-dark mb-16 tracking-tight text-center">
-          Services Utilisés dans Nos Projets
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue text-center">
-            <h3 class="font-black text-lic-dark mb-3">Formation</h3>
-            <p class="text-gray-600 text-sm">Upskilling des équipes clients pour maintenance autonome.</p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue text-center">
-            <h3 class="font-black text-lic-dark mb-3">Développement</h3>
-            <p class="text-gray-600 text-sm">Développement entier de solutions custom et innovantes.</p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue text-center">
-            <h3 class="font-black text-lic-dark mb-3">Cloud & DevOps</h3>
-            <p class="text-gray-600 text-sm">Migration et infrastructure cloud hautement performante.</p>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg border-t-4 border-lic-blue text-center">
-            <h3 class="font-black text-lic-dark mb-3">Conseil</h3>
-            <p class="text-gray-600 text-sm">Guidage stratégique et optimisation continue.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Industries -->
     <section class="py-24">

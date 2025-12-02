@@ -36,81 +36,81 @@
             </div>
         </section>
 
-        <!-- Story & Vision - Bento Grid Style -->
-        <section class="py-24 max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 grid-rows-2">
-                <!-- Story Block (Large) -->
-                <div
-                    class="md:col-span-2 bg-gray-50 rounded-3xl p-10 relative overflow-hidden group hover:shadow-lg transition-shadow duration-300"
-                >
-                    <div class="relative z-10">
-                        <h2 class="text-3xl font-black text-lic-dark mb-6">
-                            Notre Histoire
-                        </h2>
-                        <div class="space-y-4 text-gray-600 leading-relaxed">
-                            <p>
-                                Tout a commencé avec une observation simple : le
-                                talent est universel, mais les opportunités ne
-                                le sont pas. Makhmadane Lo a fondé LO IT
-                                CONSULTING pour combler ce fossé.
-                            </p>
-                            <p>
-                                Parti d'une petite équipe de développeurs
-                                passionnés, LIC est devenu un hub d'innovation
-                                incontournable, accompagnant plus de 200
-                                entreprises, des startups locales aux
-                                multinationales, dans leur transformation
-                                numérique.
-                            </p>
-                        </div>
-                    </div>
-                    <div
-                        class="absolute top-0 right-0 w-64 h-64 bg-gray-200 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity"
-                    ></div>
-                </div>
+<!--        &lt;!&ndash; Story & Vision - Bento Grid Style &ndash;&gt;-->
+<!--        <section class="py-24 max-w-7xl mx-auto px-6 lg:px-8">-->
+<!--            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 grid-rows-2">-->
+<!--                &lt;!&ndash; Story Block (Large) &ndash;&gt;-->
+<!--                <div-->
+<!--                    class="md:col-span-2 bg-gray-50 rounded-3xl p-10 relative overflow-hidden group hover:shadow-lg transition-shadow duration-300"-->
+<!--                >-->
+<!--                    <div class="relative z-10">-->
+<!--                        <h2 class="text-3xl font-black text-lic-dark mb-6">-->
+<!--                            Notre Histoire-->
+<!--                        </h2>-->
+<!--                        <div class="space-y-4 text-gray-600 leading-relaxed">-->
+<!--                            <p>-->
+<!--                                Tout a commencé avec une observation simple : le-->
+<!--                                talent est universel, mais les opportunités ne-->
+<!--                                le sont pas. Makhmadane Lo a fondé LO IT-->
+<!--                                CONSULTING pour combler ce fossé.-->
+<!--                            </p>-->
+<!--                            <p>-->
+<!--                                Parti d'une petite équipe de développeurs-->
+<!--                                passionnés, LIC est devenu un hub d'innovation-->
+<!--                                incontournable, accompagnant plus de 200-->
+<!--                                entreprises, des startups locales aux-->
+<!--                                multinationales, dans leur transformation-->
+<!--                                numérique.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div-->
+<!--                        class="absolute top-0 right-0 w-64 h-64 bg-gray-200 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity"-->
+<!--                    ></div>-->
+<!--                </div>-->
 
-                <!-- Stat Block 1 -->
-                <div
-                    class="bg-lic-blue text-white rounded-3xl p-10 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform duration-300"
-                >
-                    <span class="text-6xl font-black mb-2">200+</span>
-                    <span class="text-blue-200 font-medium"
-                        >Projets Livrés</span
-                    >
-                </div>
+<!--                &lt;!&ndash; Stat Block 1 &ndash;&gt;-->
+<!--                <div-->
+<!--                    class="bg-lic-blue text-white rounded-3xl p-10 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform duration-300"-->
+<!--                >-->
+<!--                    <span class="text-6xl font-black mb-2">200+</span>-->
+<!--                    <span class="text-blue-200 font-medium"-->
+<!--                        >Projets Livrés</span-->
+<!--                    >-->
+<!--                </div>-->
 
-                <!-- Stat Block 2 -->
-                <div
-                    class="bg-lic-orange text-white rounded-3xl p-10 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform duration-300"
-                >
-                    <span class="text-6xl font-black mb-2">15+</span>
-                    <span class="text-orange-200 font-medium"
-                        >Années d'Expérience</span
-                    >
-                </div>
+<!--                &lt;!&ndash; Stat Block 2 &ndash;&gt;-->
+<!--                <div-->
+<!--                    class="bg-lic-orange text-white rounded-3xl p-10 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform duration-300"-->
+<!--                >-->
+<!--                    <span class="text-6xl font-black mb-2">15+</span>-->
+<!--                    <span class="text-orange-200 font-medium"-->
+<!--                        >Années d'Expérience</span-->
+<!--                    >-->
+<!--                </div>-->
 
-                <!-- Vision Block -->
-                <div
-                    class="md:col-span-2 bg-lic-dark text-white rounded-3xl p-10 relative overflow-hidden flex items-center"
-                >
-                    <div class="relative z-10 max-w-xl">
-                        <h2 class="text-3xl font-black text-lic-orange mb-4">
-                            Notre Vision
-                        </h2>
-                        <p class="text-gray-300 text-lg">
-                            Devenir le partenaire technologique de référence en
-                            Afrique de l'Ouest, reconnu pour sa capacité à
-                            résoudre des problèmes complexes par des solutions
-                            simples, élégantes et robustes.
-                        </p>
-                    </div>
-                    <!-- Decorative pattern -->
-                    <div
-                        class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
-                    ></div>
-                </div>
-            </div>
-        </section>
+<!--                &lt;!&ndash; Vision Block &ndash;&gt;-->
+<!--                <div-->
+<!--                    class="md:col-span-2 bg-lic-dark text-white rounded-3xl p-10 relative overflow-hidden flex items-center"-->
+<!--                >-->
+<!--                    <div class="relative z-10 max-w-xl">-->
+<!--                        <h2 class="text-3xl font-black text-lic-orange mb-4">-->
+<!--                            Notre Vision-->
+<!--                        </h2>-->
+<!--                        <p class="text-gray-300 text-lg">-->
+<!--                            Devenir le partenaire technologique de référence en-->
+<!--                            Afrique de l'Ouest, reconnu pour sa capacité à-->
+<!--                            résoudre des problèmes complexes par des solutions-->
+<!--                            simples, élégantes et robustes.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Decorative pattern &ndash;&gt;-->
+<!--                    <div-->
+<!--                        class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"-->
+<!--                    ></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
 
             <!-- Founder Spotlight -->
 
