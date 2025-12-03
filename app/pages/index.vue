@@ -307,7 +307,7 @@ onMounted(() => {
             <div ref="scrollContainer" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
               <!-- Project 1 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Projet 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">FinTech</span>
                   <h3 class="text-white text-xl font-bold">Plateforme de Paiement</h3>
@@ -315,7 +315,7 @@ onMounted(() => {
               </div>
               <!-- Project 2 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Projet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">E-Santé</span>
                   <h3 class="text-white text-xl font-bold">Gestion Hospitalière</h3>
@@ -323,7 +323,7 @@ onMounted(() => {
               </div>
               <!-- Project 3 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                 <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Projet 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Éducation</span>
                   <h3 class="text-white text-xl font-bold">LMS Universitaire</h3>
@@ -331,7 +331,7 @@ onMounted(() => {
               </div>
               <!-- Project 4 (Extra for scrolling demo) -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Projet 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Analytics</span>
                   <h3 class="text-white text-xl font-bold">Dashboard Business</h3>
@@ -374,6 +374,13 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .animate-marquee {
   animation: marquee 40s linear infinite;
 }

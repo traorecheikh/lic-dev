@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'LO IT CONSULTING transforme les défis technologiques en opportunités. Formation, développement, cloud et conseil IT au Sénégal et en Afrique.' },
         { name: 'format-detection', content: 'telephone=no' },
         // Security Meta Tags
-        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https:; img-src 'self' https: data:; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval';" },
+        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https:; img-src 'self' https: data: https://images.unsplash.com; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval';" },
       ],
       link: [
         {
