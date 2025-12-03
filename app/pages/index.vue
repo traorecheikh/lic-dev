@@ -12,7 +12,7 @@ import cbaoLogo from '~/assets/partners/cbao.png'
 import auchanLogo from '~/assets/partners/auchan.png'
 import canalLogo from '~/assets/partners/canal.png'
 
-const heroImg = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+const heroImg = 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 
 const { animateOnIntersection } = useRollingNumbers()
 
@@ -355,15 +355,10 @@ onMounted(() => {
         </div>
         
         <div class="relative flex overflow-x-hidden group">
-            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-32 px-12 min-w-full w-max">
+            <div class="py-4 animate-marquee whitespace-nowrap flex items-center gap-32 px-16 min-w-full w-max">
                 <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
                  <!-- Duplicate for seamless loop -->
                 <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-            </div>
-            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-32 px-12 min-w-full w-max">
-               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-                <!-- Duplicate for seamless loop -->
-               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
             </div>
              <!-- Fade effect sides -->
             <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
@@ -384,15 +379,8 @@ onMounted(() => {
 .animate-marquee {
   animation: marquee 40s linear infinite;
 }
-.animate-marquee2 {
-  animation: marquee2 40s linear infinite;
-}
 @keyframes marquee {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
-@keyframes marquee2 {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 </style>
