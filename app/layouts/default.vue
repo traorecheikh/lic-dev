@@ -48,12 +48,12 @@ const closeMobileMenu = () => {
 
           <div class="flex items-center gap-3">
              <!-- Demo Button (Primary) -->
-            <NuxtLink to="/contact?subject=Demander une demo" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
+            <NuxtLink to="/contact?subject=Demander une demo#contact-form" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
               Demander une Démo
             </NuxtLink>
 
             <!-- Contact Button (Secondary - Outlined) -->
-            <NuxtLink to="/contact" class="hidden sm:block text-lic-blue font-bold text-sm px-5 py-2.5 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white">
+            <NuxtLink to="/contact#contact-form" class="hidden sm:block text-lic-blue font-bold text-sm px-5 py-2.5 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white">
               Nous Contacter
             </NuxtLink>
 
@@ -89,10 +89,10 @@ const closeMobileMenu = () => {
           Formation Gratuite
         </NuxtLink>
         <div class="flex flex-col gap-3 mt-4">
-          <NuxtLink to="/contact?subject=Demander une demo" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
+          <NuxtLink to="/contact?subject=Demander une demo#contact-form" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
             Demander une Démo
           </NuxtLink>
-          <NuxtLink to="/contact" class="text-center text-lic-blue font-bold text-sm px-6 py-3 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white" @click="closeMobileMenu">
+          <NuxtLink to="/contact#contact-form" class="text-center text-lic-blue font-bold text-sm px-6 py-3 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white" @click="closeMobileMenu">
             Nous Contacter
           </NuxtLink>
         </div>

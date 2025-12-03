@@ -355,15 +355,15 @@ onMounted(() => {
         </div>
         
         <div class="relative flex overflow-x-hidden group">
-            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-24 px-12">
-                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-32 px-12 min-w-full w-max">
+                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
                  <!-- Duplicate for seamless loop -->
-                <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
             </div>
-            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-24 px-12">
-               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-32 px-12 min-w-full w-max">
+               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
                 <!-- Duplicate for seamless loop -->
-               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
             </div>
              <!-- Fade effect sides -->
             <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
