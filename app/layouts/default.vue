@@ -21,7 +21,7 @@ const closeMobileMenu = () => {
         <div class="flex justify-between items-center h-20">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
-            <img :src="licLogo" alt="LIC Logo" class="h-12" />
+            <img :src="licLogo" width="150" height="48" alt="LIC Logo" class="h-12 w-auto" />
           </NuxtLink>
 
           <!-- Desktop Navigation Menu -->
@@ -48,7 +48,7 @@ const closeMobileMenu = () => {
 
           <div class="flex items-center gap-3">
              <!-- Demo Button (Primary) -->
-            <NuxtLink to="/contact" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #FF5722;">
+            <NuxtLink to="/contact?subject=Demander une demo" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
               Demander une Démo
             </NuxtLink>
 
@@ -58,7 +58,7 @@ const closeMobileMenu = () => {
             </NuxtLink>
 
             <!-- Mobile Menu Button -->
-            <button @click="toggleMobileMenu" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+            <button @click="toggleMobileMenu" aria-label="Ouvrir le menu" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -89,7 +89,7 @@ const closeMobileMenu = () => {
           Formation Gratuite
         </NuxtLink>
         <div class="flex flex-col gap-3 mt-4">
-          <NuxtLink to="/contact" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #FF5722;" @click="closeMobileMenu">
+          <NuxtLink to="/contact?subject=Demander une demo" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
             Demander une Démo
           </NuxtLink>
           <NuxtLink to="/contact" class="text-center text-lic-blue font-bold text-sm px-6 py-3 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white" @click="closeMobileMenu">
@@ -112,9 +112,9 @@ const closeMobileMenu = () => {
           <!-- Column 1: Company Info -->
           <div class="lg:col-span-2">
             <div class="flex items-center gap-3 mb-6">
-              <img :src="licLogo" alt="LIC Logo" class="h-10" />
+              <img :src="licLogo" width="125" height="40" alt="LIC Logo" class="h-10 w-auto" />
             </div>
-            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            <p class="text-gray-300 text-sm leading-relaxed mb-6">
               L'expertise IT au service de l'Afrique Digitale. Transformation digitale, Formation, Développement, Cloud & DevOps.
             </p>
             <div class="flex gap-4">
@@ -128,10 +128,10 @@ const closeMobileMenu = () => {
           <div>
             <h4 class="text-white font-black text-sm mb-6 tracking-widest">SERVICES</h4>
             <ul class="space-y-3 text-sm">
-              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition">Formation IT</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition">Développement</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition">Cloud & DevOps</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-orange-500 transition">Conseil Tech</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Formation IT</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Développement</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Cloud & DevOps</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Conseil Tech</a></li>
             </ul>
           </div>
 
@@ -139,11 +139,11 @@ const closeMobileMenu = () => {
           <div>
             <h4 class="text-white font-black text-sm mb-6 tracking-widest">NAVIGATION</h4>
             <ul class="space-y-3 text-sm">
-              <li><NuxtLink to="/" class="text-gray-400 hover:text-orange-500 transition">Accueil</NuxtLink></li>
-              <li><NuxtLink to="/about" class="text-gray-400 hover:text-orange-500 transition">À Propos</NuxtLink></li>
-              <li><NuxtLink to="/services" class="text-gray-400 hover:text-orange-500 transition">Services</NuxtLink></li>
-              <li><NuxtLink to="/equipe" class="text-gray-400 hover:text-orange-500 transition">Équipe</NuxtLink></li>
-              <li><NuxtLink to="/portfolio" class="text-gray-400 hover:text-orange-500 transition">Portfolio</NuxtLink></li>
+              <li><NuxtLink to="/" class="text-gray-300 hover:text-lic-orange-dark transition">Accueil</NuxtLink></li>
+              <li><NuxtLink to="/about" class="text-gray-300 hover:text-lic-orange-dark transition">À Propos</NuxtLink></li>
+              <li><NuxtLink to="/services" class="text-gray-300 hover:text-lic-orange-dark transition">Services</NuxtLink></li>
+              <li><NuxtLink to="/equipe" class="text-gray-300 hover:text-lic-orange-dark transition">Équipe</NuxtLink></li>
+              <li><NuxtLink to="/portfolio" class="text-gray-300 hover:text-lic-orange-dark transition">Portfolio</NuxtLink></li>
             </ul>
           </div>
 
@@ -161,7 +161,7 @@ const closeMobileMenu = () => {
               </div>
               <div>
                 <p class="text-orange-500 font-bold text-xs mb-1">ADRESSE</p>
-                <p class="text-gray-400 text-xs">CICES FOIRE VILLA 111<br/>Dakar, Sénégal</p>
+                <p class="text-gray-300 text-xs">CICES FOIRE VILLA 111<br/>Dakar, Sénégal</p>
               </div>
             </div>
           </div>
@@ -174,9 +174,9 @@ const closeMobileMenu = () => {
               © 2025 LO IT CONSULTING. Tous droits réservés.
             </p>
             <div class="flex gap-6 text-xs">
-              <a href="#" class="text-gray-500 hover:text-orange-500 transition">Politique de Confidentialité</a>
-              <a href="#" class="text-gray-500 hover:text-orange-500 transition">Conditions d'Utilisation</a>
-              <a href="#" class="text-gray-500 hover:text-orange-500 transition">Mentions Légales</a>
+              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Politique de Confidentialité</a>
+              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Conditions d'Utilisation</a>
+              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Mentions Légales</a>
             </div>
           </div>
         </div>

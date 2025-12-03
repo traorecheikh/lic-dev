@@ -6,6 +6,8 @@
             <div class="relative h-96 lg:h-auto overflow-hidden">
                 <img
                     src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    width="2070"
+                    height="1200"
                     alt="Contactez-nous"
                     class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                 />
@@ -16,7 +18,7 @@
             <div class="flex items-center p-10 lg:p-24 xl:p-32">
                 <div class="max-w-xl">
                     <span
-                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
+                        class="text-lic-orange-dark font-bold tracking-widest uppercase text-sm mb-4 block"
                         >Parlons de Votre Projet</span
                     >
                     <h1
@@ -40,7 +42,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             <!-- Phone -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange-dark rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 </div>
                 <h3 class="font-bold text-lic-dark">Téléphone</h3>
@@ -56,7 +58,7 @@
             </div>
             <!-- Address -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="w-12 h-12 bg-lic-orange/10 text-lic-orange-dark rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
                 <h3 class="font-bold text-lic-dark">Adresse</h3>
@@ -117,11 +119,23 @@
                                 class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
                             >
                                 <option value="">Sélectionner un sujet</option>
+                                <option value="Demander une demo">Demander une demo</option>
                                 <option value="devis">Demande de Devis</option>
                                 <option value="partenariat">Partenariat</option>
                                 <option value="recrutement">Recrutement</option>
                                 <option value="autre">Autre</option>
                             </select>
+                            
+                            <div v-if="form.subject === 'Demander une demo'" class="mt-4">
+                                <label class="block text-sm font-bold text-lic-dark mb-2">Projet</label>
+                                <select
+                                    v-model="form.project"
+                                    class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-lic-orange focus:ring-2 focus:ring-lic-orange/20 transition"
+                                >
+                                    <option value="">Sélectionner un projet</option>
+                                    <option v-for="p in projects" :key="p" :value="p">{{ p }}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -139,7 +153,7 @@
                     <div class="text-center pt-4">
                         <button
                             type="submit"
-                            class="bg-lic-orange hover:bg-orange-600 text-white font-bold px-10 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg inline-flex items-center"
+                            class="bg-lic-orange-dark hover:bg-orange-800 text-white font-bold px-10 py-4 rounded-full transition duration-300 transform hover:scale-105 shadow-lg inline-flex items-center"
                         >
                             Envoyer le Message
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -189,7 +203,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const route = useRoute()
+
+const projects = [
+  'Site Vitrine',
+  'E-commerce',
+  'Application Mobile',
+  'ERP/CRM',
+  'Autre'
+]
 
 useHead({
   title: 'Contact - LO IT CONSULTING',
@@ -204,7 +228,14 @@ const form = ref({
   phone: '',
   company: '',
   subject: '',
+  project: '',
   message: '',
+})
+
+onMounted(() => {
+  if (route.query.subject) {
+    form.value.subject = route.query.subject as string
+  }
 })
 
 const submitted = ref(false)

@@ -31,6 +31,20 @@ const partners = [
   { name: 'Canal+', url: canalLogo },
 ]
 
+const scrollContainer = ref(null)
+
+const scrollLeft = () => {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({ left: -400, behavior: 'smooth' })
+  }
+}
+
+const scrollRight = () => {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({ left: 400, behavior: 'smooth' })
+  }
+}
+
 onMounted(() => {
   animateOnIntersection('.stat-number', [200, 98, 15], 3)
 })
@@ -42,7 +56,7 @@ onMounted(() => {
     <section class="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-lic-dark">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-             <img :src="heroImg" alt="Innovation Digitale" class="w-full h-full object-cover opacity-40" />
+             <img :src="heroImg" width="1600" height="900" alt="Innovation Digitale" class="w-full h-full object-cover opacity-40" />
              <div class="absolute inset-0 bg-gradient-to-b from-lic-dark/90 via-lic-dark/40 to-transparent opacity-90"></div>
         </div>
 
@@ -97,7 +111,7 @@ onMounted(() => {
     <section class="py-20 bg-gradient-to-b from-white to-gray-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block">Nos Services</span>
+          <span class="text-lic-orange-dark font-bold tracking-widest uppercase text-sm mb-4 block">Nos Services</span>
           <h2 class="text-4xl md:text-5xl font-black text-lic-dark mb-4 tracking-tight">
             Nos Domaines d'Expertise
           </h2>
@@ -108,29 +122,9 @@ onMounted(() => {
 
         <!-- Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          <!-- Service 1: Formation IT -->
+          <!-- Service 1: Développement Sur Mesure -->
           <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Formation IT" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
-            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
-              <div class="mt-auto">
-                <h3 class="text-4xl font-black mb-4 leading-tight">Formation IT</h3>
-                <p class="text-gray-100 leading-relaxed mb-6">Développez les compétences de votre équipe avec nos programmes de formation reconnus, conçus par des experts de l'industrie.</p>
-                <div class="space-y-3 text-sm text-gray-200 mb-8">
-                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Web Development, React, Vue.js</p>
-                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Mobile Apps: React Native, Flutter</p>
-                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> DevOps & Cloud, Certifications</p>
-                </div>
-                <NuxtLink to="/services" class="inline-block bg-lic-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                  Demander une Formation →
-                </NuxtLink>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 2: Développement Sur Mesure -->
-          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Développement" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Développement" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
             <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
               <div class="mt-auto">
@@ -148,9 +142,9 @@ onMounted(() => {
             </div>
           </div>
 
-          <!-- Service 3: Cloud & DevOps -->
+          <!-- Service 2: Cloud & DevOps -->
           <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cloud & DevOps" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Cloud & DevOps" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
             <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
               <div class="mt-auto">
@@ -161,16 +155,16 @@ onMounted(() => {
                   <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Containerization: Docker, K8s</p>
                   <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> CI/CD & Monitoring: GitHub Actions</p>
                 </div>
-                <NuxtLink to="/services" class="inline-block bg-lic-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                <NuxtLink to="/services" class="inline-block bg-lic-orange-dark hover:bg-orange-800 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
                   Planifier votre Migration →
                 </NuxtLink>
               </div>
             </div>
           </div>
 
-          <!-- Service 4: Conseil Technologique -->
+          <!-- Service 3: Conseil Technologique -->
           <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Conseil Tech" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Conseil Tech" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
             <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
               <div class="mt-auto">
@@ -187,6 +181,26 @@ onMounted(() => {
               </div>
             </div>
           </div>
+
+          <!-- Service 4: Formation IT -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Formation IT" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
+              <div class="mt-auto">
+                <h3 class="text-4xl font-black mb-4 leading-tight">Formation IT</h3>
+                <p class="text-gray-100 leading-relaxed mb-6">Développez les compétences de votre équipe avec nos programmes de formation reconnus, conçus par des experts de l'industrie.</p>
+                <div class="space-y-3 text-sm text-gray-200 mb-8">
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Web Development, React, Vue.js</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> Mobile Apps: React Native, Flutter</p>
+                  <p class="flex items-center"><span class="text-lic-orange mr-3 font-bold text-lg">•</span> DevOps & Cloud, Certifications</p>
+                </div>
+                <NuxtLink to="/services" class="inline-block bg-lic-orange-dark hover:bg-orange-800 text-white font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+                  Demander une Formation →
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="mt-16 text-center">
@@ -197,28 +211,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- Partners / Trust Section -->
-    <section class="py-16 bg-white border-t border-gray-100 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
-             <p class="text-gray-400 font-bold uppercase tracking-widest text-sm">ILS NOUS FONT CONFIANCE</p>
-        </div>
-        
-        <div class="relative flex overflow-x-hidden group">
-            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-24 px-12">
-                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-                 <!-- Duplicate for seamless loop -->
-                <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-            </div>
-            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-24 px-12">
-               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-                <!-- Duplicate for seamless loop -->
-               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" :alt="logo.name" class="h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
-            </div>
-             <!-- Fade effect sides -->
-            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
-        </div>
-    </section>
+
 
     <!-- Why Us Redesigned -->
     <section class="py-32 bg-gray-50 relative overflow-hidden">
@@ -228,7 +221,7 @@ onMounted(() => {
 
       <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-20">
-          <span class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block">Pourquoi Nous ?</span>
+          <span class="text-lic-orange-dark font-bold tracking-widest uppercase text-sm mb-4 block">Pourquoi Nous ?</span>
           <h2 class="text-4xl md:text-5xl font-black text-lic-dark mb-6 tracking-tight leading-tight">
             Nous ne fournissons pas seulement du code, nous livrons de la <span class="text-lic-blue">valeur.</span>
           </h2>
@@ -302,28 +295,49 @@ onMounted(() => {
           </NuxtLink>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-            <img src="@/assets/project1.png" alt="Projet 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">FinTech</span>
-              <h3 class="text-white text-xl font-bold">Plateforme de Paiement</h3>
+        <div class="relative">
+            <!-- Scroll Buttons -->
+            <button @click="scrollLeft" aria-label="Défiler vers la gauche" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 bg-white p-3 rounded-full shadow-lg text-lic-dark hover:text-lic-orange transition hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button @click="scrollRight" aria-label="Défiler vers la droite" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 bg-white p-3 rounded-full shadow-lg text-lic-dark hover:text-lic-orange transition hidden md:block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+
+            <div ref="scrollContainer" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
+              <!-- Project 1 -->
+              <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">FinTech</span>
+                  <h3 class="text-white text-xl font-bold">Plateforme de Paiement</h3>
+                </div>
+              </div>
+              <!-- Project 2 -->
+              <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">E-Santé</span>
+                  <h3 class="text-white text-xl font-bold">Gestion Hospitalière</h3>
+                </div>
+              </div>
+              <!-- Project 3 -->
+              <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+                 <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Éducation</span>
+                  <h3 class="text-white text-xl font-bold">LMS Universitaire</h3>
+                </div>
+              </div>
+              <!-- Project 4 (Extra for scrolling demo) -->
+              <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
+                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Projet 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Analytics</span>
+                  <h3 class="text-white text-xl font-bold">Dashboard Business</h3>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-            <img src="@/assets/project2.png" alt="Projet 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">E-Santé</span>
-              <h3 class="text-white text-xl font-bold">Gestion Hospitalière</h3>
-            </div>
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-             <img src="@/assets/project3.png" alt="Projet 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-              <span class="text-lic-orange text-xs font-bold tracking-wider uppercase mb-2">Éducation</span>
-              <h3 class="text-white text-xl font-bold">LMS Universitaire</h3>
-            </div>
-          </div>
         </div>
         
         <div class="mt-8 text-center md:hidden">
@@ -332,6 +346,29 @@ onMounted(() => {
           </NuxtLink>
         </div>
       </div>
+    </section>
+
+    <!-- Partners / Trust Section -->
+    <section class="py-16 bg-white border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center">
+             <p class="text-gray-600 font-bold uppercase tracking-widest text-sm">ILS NOUS FONT CONFIANCE</p>
+        </div>
+        
+        <div class="relative flex overflow-x-hidden group">
+            <div class="py-4 animate-marquee whitespace-nowrap flex items-center space-x-24 px-12">
+                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                 <!-- Duplicate for seamless loop -->
+                <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            </div>
+            <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap flex items-center space-x-24 px-12">
+               <img v-for="(logo, index) in partners" :key="'clone-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                <!-- Duplicate for seamless loop -->
+               <img v-for="(logo, index) in partners" :key="'clone-dup1-' + index" :src="logo.url" width="150" height="72" :alt="logo.name" class="h-[4.5rem] w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+            </div>
+             <!-- Fade effect sides -->
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+        </div>
     </section>
   </div>
 </template>
