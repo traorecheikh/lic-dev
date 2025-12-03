@@ -56,15 +56,15 @@ onMounted(() => {
     <section class="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-lic-dark">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-             <img :src="heroImg" width="1600" height="900" alt="Innovation Digitale" class="w-full h-full object-cover opacity-40" />
+             <img :src="heroImg" width="1600" height="900" alt="Innovation Digitale" class="w-full h-full object-cover opacity-40" loading="eager" decoding="async" fetchpriority="high" />
              <div class="absolute inset-0 bg-gradient-to-b from-lic-dark/90 via-lic-dark/40 to-transparent opacity-90"></div>
         </div>
 
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col justify-center h-full pt-16">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight" style="will-change: transform; contain: layout style paint;">
                 L'expertise IT au service de <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lic-orange to-lic-blue">l'Afrique Digitale</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lic-orange to-lic-blue inline-block">l'Afrique Digitale</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
                 LO IT CONSULTING transforme les défis technologiques en opportunités de croissance. Formation, développement, cloud, et conseil pour propulser votre entreprise vers l'avenir.
