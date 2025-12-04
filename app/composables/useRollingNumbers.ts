@@ -19,23 +19,36 @@ export const useRollingNumbers = () => {
     const elements = document.querySelectorAll(selector) as NodeListOf<HTMLElement>
     let animated = false
 
+    const doAnimation = () => {
+      if (!animated && elements.length > 0) {
+        animated = true
+        elements.forEach((el, index) => {
+          if (endValues[index] !== undefined) {
+            animate(el, endValues[index], duration)
+          }
+        })
+      }
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !animated) {
-          animated = true
-          elements.forEach((el, index) => {
-            if (endValues[index]) {
-              animate(el, endValues[index], duration)
-            }
-          })
+          doAnimation()
           observer.disconnect()
         }
       })
-    }, { threshold: 0.5 })
+    }, { threshold: 0.1 })
 
-    // Observe the first element
-    if (elements[0]) {
-      observer.observe(elements[0].parentElement || elements[0])
+    // Check if element exists and set up observer
+    if (elements.length > 0) {
+      const targetElement = elements[0].parentElement?.parentElement || elements[0].parentElement || elements[0]
+      observer.observe(targetElement)
+
+      // Also check if element is already visible on page load
+      const rect = targetElement.getBoundingClientRect()
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        doAnimation()
+      }
     }
   }
 
