@@ -62,7 +62,7 @@ onMounted(() => {
 
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col justify-center h-full pt-16">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight" style="will-change: transform; contain: layout style paint;">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
                 L'expertise IT au service de <br class="hidden md:block" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-lic-orange to-lic-blue inline-block">l'Afrique Digitale</span>
             </h1>

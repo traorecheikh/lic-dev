@@ -11,6 +11,15 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
 }
+
+// Ensure touch events are properly handled on mobile
+const handleTouchEvent = (e) => {
+  // Prevent default only if necessary, allowing normal click handling
+  if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+    e.preventDefault?.()
+    e.target.closest('button')?.click()
+  }
+}
 </script>
 
 <template>
