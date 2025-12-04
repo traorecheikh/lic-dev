@@ -2,7 +2,7 @@
     <div class="bg-white">
         <!-- Integrated Hero & Form Section -->
         <section
-            class="relative min-h-[85vh] flex items-center justify-center bg-lic-dark text-white"
+            class="relative min-h-[90vh] flex items-center justify-center bg-lic-dark text-white"
         >
             <!-- Background Image -->
             <div class="absolute inset-0 z-0">
