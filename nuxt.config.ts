@@ -4,25 +4,36 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
+    '@nuxt/image',
   ],
-  tailwindcss: {
-    config: {
-      theme: {
-        extend: {
-          fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            'lic-blue': '#0052CC',
-            'lic-orange': '#FF5722',
-            'lic-orange-dark': '#C43E12', // Darker shade for text accessibility (4.5:1 on white)
-            'lic-dark': '#1A1A1A',
-            'lic-light': '#F8F9FA',
+
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'gsap': ['gsap'],
+            'lucide': ['lucide-vue-next'],
           },
         },
       },
     },
   },
+
+  image: {
+    formats: ['webp', 'jpeg'],
+    quality: 80,
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+  },
+
   app: {
     head: {
       htmlAttrs: {
@@ -34,27 +45,32 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'LO IT CONSULTING transforme les défis technologiques en opportunités. Formation, développement, cloud et conseil IT au Sénégal et en Afrique.' },
         { name: 'format-detection', content: 'telephone=no' },
+        { name: 'theme-color', content: '#0052CC' },
+        { name: 'color-scheme', content: 'light' },
+        { 'http-equiv': 'x-ua-compatible', content: 'IE=edge' },
         // Security Meta Tags
-        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https:; img-src 'self' https: data: https://images.unsplash.com; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' 'unsafe-eval';" },
+        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https:; img-src 'self' https: data: https://images.unsplash.com; style-src 'self' https: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' https: 'unsafe-inline' 'unsafe-eval';" },
       ],
       link: [
+        // DNS Prefetch for external resources
+        { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
+        { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
+        { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+
+        // Preconnect for critical resources
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+
+        // Font loading
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap' },
+
+        // Preload hero image (Largest Contentful Paint optimization)
         {
           rel: 'preload',
           as: 'image',
-          href: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: '',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap',
+          href: 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0',
+          type: 'image/jpeg',
+          fetchpriority: 'high',
         },
       ],
     },
@@ -67,7 +83,43 @@ export default defineNuxtConfig({
         'Referrer-Policy': 'strict-origin-when-cross-origin',
         'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
       },
     },
+    '/_nuxt/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=31536000, immutable',
+      },
+    },
+    '/assets/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=31536000, immutable',
+      },
+    },
+    '/': { prerender: true },
+    '/about': { prerender: true },
+    '/services': { prerender: true },
+    '/portfolio': { prerender: true },
+    '/equipe': { prerender: true },
+    '/contact': { prerender: true },
+    '/formation-gratuite': { prerender: true },
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/about', '/services', '/portfolio', '/equipe', '/contact', '/formation-gratuite'],
+    },
+    minify: true,
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true,
+    },
+  },
+
+  experimental: {
+    payloadExtraction: true,
+    renderJsonPayloads: true,
+    viewTransition: true,
   },
 })
