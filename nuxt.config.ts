@@ -48,8 +48,6 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#0052CC' },
         { name: 'color-scheme', content: 'light' },
         { 'http-equiv': 'x-ua-compatible', content: 'IE=edge' },
-        // Security Meta Tags
-        { 'http-equiv': 'Content-Security-Policy', content: "default-src 'self' https:; img-src 'self' https: data: https://images.unsplash.com; style-src 'self' https: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' https: 'unsafe-inline' 'unsafe-eval';" },
       ],
       link: [
         // DNS Prefetch for external resources
@@ -61,8 +59,9 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 
-        // Font loading
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap' },
+        // Font loading - Non-blocking with font-display swap
+        { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap', onload: "this.onload=null;this.rel='stylesheet'" },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap', media: 'print', onload: "this.media='all'" },
 
         // Preload hero image (Largest Contentful Paint optimization)
         {
@@ -83,6 +82,8 @@ export default defineNuxtConfig({
         'Referrer-Policy': 'strict-origin-when-cross-origin',
         'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+        'Cross-Origin-Opener-Policy': 'same-origin',
+        'Content-Security-Policy': "default-src 'self' https:; img-src 'self' https: data:; style-src 'self' https: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;",
         'Cache-Control': 'public, max-age=3600, s-maxage=3600',
       },
     },

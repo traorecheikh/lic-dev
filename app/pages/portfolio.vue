@@ -12,6 +12,8 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
             <div class="relative h-96 lg:h-auto overflow-hidden">
                 <img
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80"
+                    width="2015"
+                    height="1510"
                     alt="Nos Réalisations"
                     class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                 />
@@ -45,7 +47,7 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
           <!-- Case Study 1 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
-              <img :src="projectImg1" alt="Banque Africaine Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="projectImg1" width="800" height="600" alt="Banque Africaine Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
@@ -108,14 +110,14 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
               </NuxtLink>
             </div>
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
-              <img :src="projectImg2" alt="E-commerce Sénégalais Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="projectImg2" width="800" height="600" alt="E-commerce Sénégalais Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
           </div>
 
           <!-- Case Study 3 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
-              <img :src="projectImg3" alt="Startup PropTech Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="projectImg3" width="800" height="600" alt="Startup PropTech Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>

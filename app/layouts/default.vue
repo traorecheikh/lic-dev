@@ -30,7 +30,7 @@ const handleTouchEvent = (e) => {
         <div class="flex justify-between items-center h-20">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
-            <img :src="licLogo" width="150" height="48" alt="LIC Logo" class="h-12 w-auto" />
+            <img :src="licLogo" width="133" height="48" alt="LIC Logo" class="h-12 w-auto" />
           </NuxtLink>
 
           <!-- Desktop Navigation Menu -->
@@ -121,7 +121,7 @@ const handleTouchEvent = (e) => {
           <!-- Column 1: Company Info -->
           <div class="lg:col-span-2">
             <div class="flex items-center gap-3 mb-6">
-              <img :src="licLogo" width="125" height="40" alt="LIC Logo" class="h-10 w-auto" />
+              <img :src="licLogo" width="111" height="40" alt="LIC Logo" class="h-10 w-auto" />
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-6">
               L'expertise IT au service de l'Afrique Digitale. Transformation digitale, Formation, Développement, Cloud & DevOps.

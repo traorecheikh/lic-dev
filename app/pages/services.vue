@@ -13,6 +13,8 @@ const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4ba
             <div class="relative h-96 lg:h-auto overflow-hidden">
                 <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    width="2070"
+                    height="1550"
                     alt="Nos Services"
                     class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                 />
@@ -72,14 +74,14 @@ const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4ba
             </NuxtLink>
           </div>
           <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
-            <img :src="serviceImg1" alt="Formation IT" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+            <img :src="serviceImg1" width="800" height="600" alt="Formation IT" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
           </div>
         </div>
 
         <!-- Service 2 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
-             <img :src="serviceImg2" alt="Développement Sur Mesure" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+             <img :src="serviceImg2" width="800" height="600" alt="Développement Sur Mesure" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
           </div>
           <div class="order-1 md:order-2">
             <h2 class="text-4xl font-black text-lic-dark mb-6 tracking-tight">Développement Sur Mesure</h2>

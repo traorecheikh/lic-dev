@@ -6,6 +6,8 @@
             <div class="relative h-96 lg:h-auto overflow-hidden">
                 <img
                     src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                    width="2070"
+                    height="1550"
                     alt="Notre Équipe"
                     class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                 />

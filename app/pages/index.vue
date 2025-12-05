@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRollingNumbers } from '~/composables/useRollingNumbers'
+import { useResponsiveImage } from '~/composables/useResponsiveImage'
 
 // Import partner logos using standard Nuxt aliases
 import orangeLogo from '~/assets/partners/orange.svg'
@@ -43,6 +44,12 @@ const scrollRight = () => {
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({ left: 400, behavior: 'smooth' })
   }
+}
+
+const { generateUnsplashSrcset } = useResponsiveImage()
+
+const generateSrcset = (imageUrl) => {
+  return generateUnsplashSrcset(imageUrl, [556, 768, 1000, 1200])
 }
 
 onMounted(() => {
@@ -124,7 +131,7 @@ onMounted(() => {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           <!-- Service 1: Développement Sur Mesure -->
           <div class="group relative overflow-hidden rounded-3xl min-h-[32rem] shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" width="1000" height="600" alt="Développement" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" :srcset="generateSrcset('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop')" sizes="(max-width: 768px) 100vw, 50vw" width="1000" height="600" alt="Développement" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-lic-dark via-lic-dark/60 to-transparent opacity-95 transition duration-300"></div>
             <div class="relative z-10 h-full flex flex-col justify-between p-8 text-white">
               <div class="mt-auto">

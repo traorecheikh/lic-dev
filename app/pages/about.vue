@@ -6,6 +6,8 @@
                 <div class="relative h-64 lg:h-auto overflow-hidden">
                     <img
                         src="@/assets/banner.png"
+                        width="1280"
+                        height="960"
                         alt="Notre Mission"
                         class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
                     />
@@ -126,7 +128,7 @@
 
                     <div class="lg:col-span-5 relative h-[500px] lg:h-full lg:min-h-[600px]">
 
-                      <img src="@/assets/founder.jpg" alt="Makhmadane Lo" class="absolute inset-0 w-full h-full object-cover object-top" />
+                      <img src="@/assets/founder.jpg" width="400" height="500" alt="Makhmadane Lo" class="absolute inset-0 w-full h-full object-cover object-top" />
 
                       <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-none"></div>
 

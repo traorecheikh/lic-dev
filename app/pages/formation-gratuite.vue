@@ -1,4 +1,6 @@
 <script setup>
+const { generateResponsiveAttrs } = useResponsiveImage()
+
 const resources = [
   {
     category: 'DevOps',
@@ -87,10 +89,13 @@ useHead({
           >
             <!-- Thumbnail -->
             <a :href="resource.link" target="_blank" class="block relative aspect-video overflow-hidden bg-gray-100">
-              <img 
-                :src="resource.image" 
-                :alt="resource.title" 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              <img
+                :src="resource.image"
+                :srcset="generateResponsiveAttrs(resource.image, '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 400px').srcset"
+                :sizes="generateResponsiveAttrs(resource.image, '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 400px').sizes"
+                :alt="resource.title"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
               
