@@ -83,7 +83,7 @@ export default defineNuxtConfig({
         'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
         'Cross-Origin-Opener-Policy': 'same-origin',
-        'Content-Security-Policy': "default-src 'self' https:; img-src 'self' https: data:; style-src 'self' https: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' https: 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;",
+        'Content-Security-Policy': "default-src 'self' https: http:; connect-src 'self' https: http:; img-src 'self' https: data: http:; style-src 'self' https: 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' https: 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;",
         'Cache-Control': 'public, max-age=3600, s-maxage=3600',
       },
     },
