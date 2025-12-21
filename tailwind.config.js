@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
+        // Montserrat with system font fallbacks for faster rendering while Google Fonts load
+        montserrat: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
       colors: {
         'lic-blue': '#0052CC',

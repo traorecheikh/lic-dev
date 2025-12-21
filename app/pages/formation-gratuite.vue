@@ -1,7 +1,19 @@
 <script setup>
-const { generateResponsiveAttrs } = useResponsiveImage()
+import { ArrowRight } from 'lucide-vue-next'; // Keep this for the arrow icon
 
-const resources = [
+const { generateResponsiveAttrs } = useResponsiveImage()
+const { find } = useStrapi()
+
+// Function to extract YouTube ID from various YouTube URL formats
+const getYouTubeId = (url) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+// Fallback resources
+const fallbackResources = [
   {
     category: 'DevOps',
     duration: '15 min',
@@ -10,60 +22,72 @@ const resources = [
     image: 'https://images.unsplash.com/photo-1607799275518-d58665d099db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.youtube.com/watch?v=0yWAtQ6GGXE'
   },
-  {
-    category: 'Frontend',
-    duration: '45 min',
-    title: 'Maîtriser React.js en 2025',
-    description: 'Un guide complet pour démarrer avec React. Les hooks, les composants fonctionnels et le state management.',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://www.youtube.com/watch?v=bMknfKXIFA8'
-  },
-  {
-    category: 'Cloud',
-    duration: '30 min',
-    title: 'Architecture Cloud AWS',
-    description: 'Découvrez comment concevoir des architectures robustes et scalables sur Amazon Web Services.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://www.youtube.com/watch?v=rrK1uK0m5wc'
-  },
-  {
-    category: 'Sécurité',
-    duration: '20 min',
-    title: 'Sécurité des Applications Web',
-    description: 'Les failles courantes (OWASP Top 10) et comment sécuriser vos applications contre les attaques.',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '#'
-  },
-  {
-    category: 'Agile',
-    duration: '10 min',
-    title: 'Gestion de Projet Agile',
-    description: 'Comment livrer de la valeur plus rapidement avec la méthodologie Scrum. Rôles et événements.',
-    image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '#'
-  },
-  {
-    category: 'Data',
-    duration: '1h 15m',
-    title: 'Data Science avec Python',
-    description: "Introduction à l'analyse de données avec Pandas, NumPy et la visualisation avec Matplotlib.",
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: '#'
+];
+
+// Fetch data from Strapi and then enrich with YouTube data
+const { data: strapiData, pending, error } = await useAsyncData('formation-videos', async () => {
+  try {
+    // 1. Get links from Strapi
+    const videosRes = await find('resources', { fields: ['link', 'slug'], sort: 'publishedAt:desc' });
+    
+    if (!Array.isArray(videosRes.data)) {
+        return [];
+    }
+
+    // 2. Enrich each video with YouTube data (Title, Duration, etc.)
+    const processedVideos = await Promise.all(videosRes.data.map(async (v) => {
+      const resourceLink = v.attributes?.link || v.link;
+      const resourceSlug = v.attributes?.slug || v.slug;
+      const youtubeId = getYouTubeId(resourceLink);
+
+      let youtubeData = { title: 'Titre de vidéo', author: '', duration: 'N/A', thumbnail: '' };
+
+      if (youtubeId) {
+        try {
+          // Call our internal server API to get details (oEmbed + Duration Scraper)
+          youtubeData = await $fetch(`/api/video-metadata?videoId=${youtubeId}`);
+        } catch (err) {
+          // Fallback thumbnail if API fails
+          youtubeData.thumbnail = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+        }
+      }
+      
+      return {
+        id: v.id,
+        category: 'Vidéo',
+        duration: youtubeData.duration || 'N/A',
+        title: youtubeData.title || 'Titre de vidéo',
+        description: youtubeData.author ? `Vidéo de ${youtubeData.author}` : 'Description non disponible',
+        image: youtubeData.thumbnail || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        link: resourceLink,
+        youtubeId: youtubeId,
+        slug: resourceSlug,
+      };
+    }));
+
+    return processedVideos;
+  } catch (e) {
+    console.error('Strapi fetch error:', e);
+    return null;
   }
-]
+});
+
+const displayedResources = computed(() => {
+  return strapiData.value?.length ? strapiData.value : fallbackResources;
+});
 
 useHead({
   title: 'Formation Gratuite - LIC',
   meta: [
-    { name: 'description', content: 'Tutoriels et ressources gratuits pour développer vos compétences IT.' }
+    { name: 'description', content: 'Tutoriels et ressources vidéo gratuits pour développer vos compétences IT.' }
   ]
-})
+});
 </script>
 
 <template>
   <div class="bg-white min-h-screen">
     
-    <!-- Simple Header -->
+    <!-- Header -->
     <section class="pt-20 pb-12 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="max-w-3xl">
@@ -72,27 +96,35 @@ useHead({
             Apprenez & Grandissez
           </h1>
           <p class="text-xl text-gray-600 leading-relaxed">
-            Une sélection de nos meilleures ressources pour vous aider à maîtriser les technologies qui façonnent le monde de demain.
+            Une sélection de nos meilleures ressources vidéos pour vous aider à maîtriser les technologies de demain.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Library Grid -->
+    <!-- Video Resources Grid -->
     <section class="pb-24 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex items-center justify-between mb-8">
+           <h2 class="text-2xl font-bold text-lic-dark">Tutoriels Vidéos</h2>
+           <span v-if="pending" class="text-sm text-gray-500">Chargement...</span>
+        </div>
+
+        <div v-if="error" class="text-center text-red-600">
+          Impossible de charger les vidéos. Veuillez vérifier la connexion au backend.
+        </div>
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div 
-            v-for="(resource, index) in resources" 
-            :key="index" 
+            v-for="(resource, index) in displayedResources" 
+            :key="resource.id || index" 
             class="group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-lic-blue/50 transition-all duration-300 hover:shadow-lg flex flex-col"
           >
             <!-- Thumbnail -->
             <a :href="resource.link" target="_blank" class="block relative aspect-video overflow-hidden bg-gray-100">
               <img
                 :src="resource.image"
-                :srcset="generateResponsiveAttrs(resource.image, '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 400px').srcset"
-                :sizes="generateResponsiveAttrs(resource.image, '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 400px').sizes"
+                :srcset="generateResponsiveAttrs(resource.image, 'card').srcset"
+                :sizes="generateResponsiveAttrs(resource.image, 'card').sizes"
                 :alt="resource.title"
                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

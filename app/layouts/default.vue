@@ -23,14 +23,14 @@ const handleTouchEvent = (e) => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-white" style="font-family: 'Montserrat', sans-serif;">
+  <div class="min-h-screen flex flex-col bg-white" style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <!-- Logo -->
           <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
-            <img :src="licLogo" width="133" height="48" alt="LIC Logo" class="h-12 w-auto" style="aspect-ratio: 1124/406;" />
+            <img :src="licLogo" width="133" height="48" alt="LIC Logo" class="h-12" style="width: 132.87px; height: 48px; aspect-ratio: 1124/406;" />
           </NuxtLink>
 
           <!-- Desktop Navigation Menu -->
@@ -121,7 +121,7 @@ const handleTouchEvent = (e) => {
           <!-- Column 1: Company Info -->
           <div class="lg:col-span-2">
             <div class="flex items-center gap-3 mb-6">
-              <img :src="licLogo" width="111" height="40" alt="LIC Logo" class="h-10 w-auto" style="aspect-ratio: 1124/406;" />
+              <img :src="licLogo" width="111" height="40" alt="LIC Logo" class="h-10" style="width: 110.71px; height: 40px; aspect-ratio: 1124/406;" />
             </div>
             <p class="text-gray-300 text-sm leading-relaxed mb-6">
               L'expertise IT au service de l'Afrique Digitale. Transformation digitale, Formation, Développement, Cloud & DevOps.

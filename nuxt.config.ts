@@ -5,19 +5,18 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
+    '@nuxtjs/strapi',
   ],
+
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    prefix: '/api',
+    version: 'v4',
+  },
 
   vite: {
     build: {
       cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'gsap': ['gsap'],
-            'lucide': ['lucide-vue-next'],
-          },
-        },
-      },
     },
   },
 
@@ -59,9 +58,6 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 
-        // Font loading with font-display swap
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap' },
-
         // Preload hero image (Largest Contentful Paint optimization)
         {
           rel: 'preload',
@@ -69,6 +65,11 @@ export default defineNuxtConfig({
           href: 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0',
           type: 'image/jpeg',
           fetchpriority: 'high',
+        },
+        // Google Fonts - non-blocking load with swap
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap',
         },
       ],
     },
@@ -121,5 +122,17 @@ export default defineNuxtConfig({
     payloadExtraction: true,
     renderJsonPayloads: true,
     viewTransition: true,
+  },
+
+  // Router configuration for route-level code splitting
+  router: {
+    options: {
+      scrollBehavior: 'smooth',
+    },
+  },
+
+  // Build configuration for optimized JavaScript output
+  build: {
+    transpile: [],
   },
 })
