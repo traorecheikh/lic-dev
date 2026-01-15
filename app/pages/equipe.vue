@@ -1,38 +1,38 @@
 <template>
   <div class="bg-white">
     <!-- Modern Split Hero -->
-    <section class="relative bg-lic-dark text-white">
-        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
-            <div class="relative h-96 lg:h-auto overflow-hidden">
-                <img
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                    width="2070"
-                    height="1550"
-                    alt="Notre Équipe"
-                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
-                />
-                <div
-                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
-                ></div>
-            </div>
-            <div class="flex items-center p-10 lg:p-24 xl:p-32">
-                <div class="max-w-xl">
-                     <span
-                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
-                        >Nos Talents</span
-                    >
-                    <h1
-                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
-                    >
-                        Rencontrez <span class="text-lic-blue">l'Équipe</span>
-                    </h1>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
-                        Une équipe passionnée et experte, unie par une vision commune : transformer vos idées en réalités numériques impactantes.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section class="relative bg-lic-dark text-white">-->
+<!--        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">-->
+<!--            <div class="relative h-96 lg:h-auto overflow-hidden">-->
+<!--                <img-->
+<!--                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"-->
+<!--                    width="2070"-->
+<!--                    height="1550"-->
+<!--                    alt="Notre Équipe"-->
+<!--                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"-->
+<!--                />-->
+<!--                <div-->
+<!--                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"-->
+<!--                ></div>-->
+<!--            </div>-->
+<!--            <div class="flex items-center p-10 lg:p-24 xl:p-32">-->
+<!--                <div class="max-w-xl">-->
+<!--                     <span-->
+<!--                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"-->
+<!--                        >Nos Talents</span-->
+<!--                    >-->
+<!--                    <h1-->
+<!--                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"-->
+<!--                    >-->
+<!--                        Rencontrez <span class="text-lic-blue">l'Équipe</span>-->
+<!--                    </h1>-->
+<!--                    <p class="text-lg text-gray-300 leading-relaxed mb-8">-->
+<!--                        Une équipe passionnée et experte, unie par une vision commune : transformer vos idées en réalités numériques impactantes.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Team Grid -->
     <section class="py-20">

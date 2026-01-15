@@ -1,42 +1,42 @@
 <template>
     <div class="bg-white overflow-hidden">
         <!-- Modern Split Hero -->
-        <section class="relative bg-lic-dark text-white">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-                <div class="relative h-64 lg:h-auto overflow-hidden">
-                    <img
-                        src="@/assets/banner.png"
-                        width="1280"
-                        height="960"
-                        alt="Notre Mission"
-                        class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
-                    />
-                    <div
-                        class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
-                    ></div>
-                </div>
-                <div class="flex items-center p-10 lg:p-24 xl:p-32">
-                    <div class="max-w-xl">
-                        <span
-                            class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
-                            >À Propos de Nous</span
-                        >
-                        <h1
-                            class="text-5xl md:text-6xl font-black mb-8 leading-tight"
-                        >
-                            L'excellence technologique,
-                            <span class="text-lic-blue">made in Africa.</span>
-                        </h1>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-8">
-                            LIC est bien plus qu'une entreprise de services
-                            numériques. C'est le fruit d'une ambition : celle de
-                            prouver que l'expertise africaine peut rivaliser
-                            avec les standards mondiaux les plus exigeants.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!--        <section class="relative bg-lic-dark text-white">-->
+<!--            <div class="grid grid-cols-1 lg:grid-cols-2">-->
+<!--                <div class="relative h-64 lg:h-auto overflow-hidden">-->
+<!--                    <img-->
+<!--                        src="@/assets/banner.png"-->
+<!--                        width="1280"-->
+<!--                        height="960"-->
+<!--                        alt="Notre Mission"-->
+<!--                        class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"-->
+<!--                    />-->
+<!--                    <div-->
+<!--                        class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"-->
+<!--                    ></div>-->
+<!--                </div>-->
+<!--                <div class="flex items-center p-10 lg:p-24 xl:p-32">-->
+<!--                    <div class="max-w-xl">-->
+<!--                        <span-->
+<!--                            class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"-->
+<!--                            >À Propos de Nous</span-->
+<!--                        >-->
+<!--                        <h1-->
+<!--                            class="text-5xl md:text-6xl font-black mb-8 leading-tight"-->
+<!--                        >-->
+<!--                            L'excellence technologique,-->
+<!--                            <span class="text-lic-blue">made in Africa.</span>-->
+<!--                        </h1>-->
+<!--                        <p class="text-lg text-gray-300 leading-relaxed mb-8">-->
+<!--                            LIC est bien plus qu'une entreprise de services-->
+<!--                            numériques. C'est le fruit d'une ambition : celle de-->
+<!--                            prouver que l'expertise africaine peut rivaliser-->
+<!--                            avec les standards mondiaux les plus exigeants.-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
 
 <!--        &lt;!&ndash; Story & Vision - Bento Grid Style &ndash;&gt;-->
 <!--        <section class="py-24 max-w-7xl mx-auto px-6 lg:px-8">-->

@@ -7,38 +7,38 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
 <template>
   <div class="bg-white">
     <!-- Modern Split Hero -->
-    <section class="relative bg-lic-dark text-white">
-        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
-            <div class="relative h-96 lg:h-auto overflow-hidden">
-                <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80"
-                    width="2015"
-                    height="1510"
-                    alt="Nos Réalisations"
-                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"
-                />
-                <div
-                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"
-                ></div>
-            </div>
-            <div class="flex items-center p-10 lg:p-24 xl:p-32">
-                <div class="max-w-xl">
-                    <span
-                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"
-                        >Nos Réalisations</span
-                    >
-                    <h1
-                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"
-                    >
-                        Portfolio
-                    </h1>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
-                         Découvrez comment nous avons aidé plus de 200 entreprises à transformer leur infrastructure digitale.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section class="relative bg-lic-dark text-white">-->
+<!--        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">-->
+<!--            <div class="relative h-96 lg:h-auto overflow-hidden">-->
+<!--                <img-->
+<!--                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80"-->
+<!--                    width="2015"-->
+<!--                    height="1510"-->
+<!--                    alt="Nos Réalisations"-->
+<!--                    class="absolute inset-0 w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-700"-->
+<!--                />-->
+<!--                <div-->
+<!--                    class="absolute inset-0 bg-lic-blue/20 mix-blend-multiply"-->
+<!--                ></div>-->
+<!--            </div>-->
+<!--            <div class="flex items-center p-10 lg:p-24 xl:p-32">-->
+<!--                <div class="max-w-xl">-->
+<!--                    <span-->
+<!--                        class="text-lic-orange font-bold tracking-widest uppercase text-sm mb-4 block"-->
+<!--                        >Nos Réalisations</span-->
+<!--                    >-->
+<!--                    <h1-->
+<!--                        class="text-5xl md:text-6xl font-black mb-8 leading-tight"-->
+<!--                    >-->
+<!--                        Portfolio-->
+<!--                    </h1>-->
+<!--                    <p class="text-lg text-gray-300 leading-relaxed mb-8">-->
+<!--                         Découvrez comment nous avons aidé plus de 200 entreprises à transformer leur infrastructure digitale.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
     <!-- Case Studies -->
     <section class="py-24">
