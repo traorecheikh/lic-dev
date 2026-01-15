@@ -17,13 +17,28 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
   // Artificial delay to show skeleton (User request)
   await new Promise(resolve => setTimeout(resolve, 800));
 
-  // 1. Get links from Strapi
+  // 1. Get links from Strapi with Retry Logic (for Render Cold Start)
   let videosRes;
-  try {
-    videosRes = await find('resources', { fields: ['link', 'slug'], sort: 'publishedAt:desc' });
-  } catch (err) {
-    console.error('Strapi Connection Error:', err);
-    throw new Error(`Erreur de connexion à Strapi: ${err.message || 'Serveur indisponible'}`);
+  const maxRetries = 3;
+  let attempt = 0;
+
+  while (attempt < maxRetries) {
+    try {
+      videosRes = await find('resources', { fields: ['link', 'slug'], sort: 'publishedAt:desc' });
+      break; // Success
+    } catch (err) {
+      attempt++;
+      console.warn(`Strapi connection attempt ${attempt} failed:`, err);
+
+      if (attempt >= maxRetries) {
+        console.error('Strapi Connection Error after retries:', err);
+        throw new Error(`Le serveur met du temps à répondre (réveil Render). Veuillez patienter et réessayer.`);
+      }
+
+      // Wait before retrying (2s, 4s, 8s) to give Render time to wake up
+      const delay = Math.pow(2, attempt) * 1000;
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
   }
   
   if (!videosRes || !Array.isArray(videosRes.data)) {
