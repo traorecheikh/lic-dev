@@ -6,6 +6,12 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
 
 <template>
   <div class="bg-white">
+    <PageHeader
+      tagline="Nos Réalisations"
+      description="Découvrez comment nous avons aidé plus de 200 entreprises à transformer leur infrastructure digitale."
+    >
+      <template #title>Portfolio</template>
+    </PageHeader>
     <!-- Modern Split Hero -->
 <!--    <section class="relative bg-lic-dark text-white">-->
 <!--        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">-->

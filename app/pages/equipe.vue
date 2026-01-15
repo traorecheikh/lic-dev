@@ -1,5 +1,11 @@
 <template>
   <div class="bg-white">
+    <PageHeader
+      tagline="Nos Talents"
+      description="Une équipe passionnée et experte, unie par une vision commune : transformer vos idées en réalités numériques impactantes."
+    >
+      <template #title>Rencontrez <span class="text-lic-blue">l'Équipe</span></template>
+    </PageHeader>
     <!-- Modern Split Hero -->
 <!--    <section class="relative bg-lic-dark text-white">-->
 <!--        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">-->

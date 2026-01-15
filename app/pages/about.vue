@@ -1,5 +1,15 @@
 <template>
     <div class="bg-white overflow-hidden">
+        <PageHeader
+            tagline="À Propos de Nous"
+            description="LIC est bien plus qu'une entreprise de services numériques. C'est le fruit d'une ambition : celle de prouver que l'expertise africaine peut rivaliser avec les standards mondiaux les plus exigeants."
+        >
+            <template #title>
+                L'excellence technologique,
+                <span class="text-lic-blue">made in Africa.</span>
+            </template>
+        </PageHeader>
+
         <!-- Modern Split Hero -->
 <!--        <section class="relative bg-lic-dark text-white">-->
 <!--            <div class="grid grid-cols-1 lg:grid-cols-2">-->

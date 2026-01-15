@@ -7,6 +7,12 @@ const serviceImg4 = 'https://images.unsplash.com/photo-1600880292203-757bb62b4ba
 
 <template>
   <div class="bg-white">
+    <PageHeader
+      tagline="Ce que nous faisons"
+      description="Solutions complètes pour accompagner votre transformation digitale de bout en bout."
+    >
+      <template #title>Nos Services</template>
+    </PageHeader>
     <!-- Modern Split Hero -->
 <!--    <section class="relative bg-lic-dark text-white">-->
 <!--        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">-->
