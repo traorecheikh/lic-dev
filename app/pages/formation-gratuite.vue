@@ -17,9 +17,9 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
   // Artificial delay to show skeleton (User request)
   await new Promise(resolve => setTimeout(resolve, 800));
 
-  // 1. Get links from Strapi with Retry Logic (for Render Cold Start)
+  // 1. Get links from Strapi with Retry Logic (Handle server wake-up delay)
   let videosRes;
-  const maxRetries = 3;
+  const maxRetries = 10;
   let attempt = 0;
 
   while (attempt < maxRetries) {
@@ -28,15 +28,15 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
       break; // Success
     } catch (err) {
       attempt++;
-      console.warn(`Strapi connection attempt ${attempt} failed:`, err);
+      console.warn(`Tentative de connexion au serveur ${attempt}/${maxRetries}...`);
 
       if (attempt >= maxRetries) {
-        console.error('Strapi Connection Error after retries:', err);
-        throw new Error(`Le serveur met du temps à répondre (réveil Render). Veuillez patienter et réessayer.`);
+        console.error('Server connection failed after multiple retries:', err);
+        throw new Error(`Le serveur met plus de temps que prévu à répondre. Veuillez rafraîchir la page dans quelques instants.`);
       }
 
-      // Wait before retrying (2s, 4s, 8s) to give Render time to wake up
-      const delay = Math.pow(2, attempt) * 1000;
+      // Wait before retrying (increasing delay: 5s, 10s, 15s, then 20s for the rest)
+      const delay = Math.min(attempt * 5000, 20000);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }

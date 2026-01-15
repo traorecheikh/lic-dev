@@ -8,12 +8,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     try {
       const { url } = useStrapi().strapi
       // Simple fetch to the root or a health endpoint
-      // We use native fetch to avoid Strapi-specific error handling cluttering the console
       await fetch(url, { method: 'HEAD', mode: 'no-cors' })
-      console.log('Strapi wake-up signal sent.')
+      console.log('API wake-up signal sent.')
     } catch (e) {
       // Ignore errors, we just want to trigger the server boot
-      console.log('Strapi wake-up signal sent (error ignored).')
+      console.log('API wake-up signal sent.')
     }
   }
 
