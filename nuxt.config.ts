@@ -6,7 +6,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxtjs/strapi',
+    '@nuxtjs/seo',
   ],
+
+  site: {
+    url: 'https://lo-consulting.com',
+    name: 'LO IT CONSULTING',
+    description: 'Expertise IT en Afrique',
+    defaultLocale: 'fr',
+  },
 
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
@@ -49,6 +57,7 @@ export default defineNuxtConfig({
         { 'http-equiv': 'x-ua-compatible', content: 'IE=edge' },
       ],
       link: [
+        { rel: 'icon', type: 'image/png', href: '/LIC.png' },
         // DNS Prefetch for external resources
         { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
         { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
