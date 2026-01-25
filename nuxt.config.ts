@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/strapi',
     '@nuxtjs/seo',
+    'nuxt-schema-org',
   ],
 
   site: {
