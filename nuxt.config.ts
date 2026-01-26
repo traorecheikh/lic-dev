@@ -58,7 +58,8 @@ export default defineNuxtConfig({
         { 'http-equiv': 'x-ua-compatible', content: 'IE=edge' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/LIC.png' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
         // DNS Prefetch for external resources
         { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
         { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
