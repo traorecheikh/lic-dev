@@ -393,7 +393,7 @@ watch(
     () => route.query.subject,
     (newSubject) => {
         if (newSubject) {
-            form.value.subject = newSubject as string;
+            form.value.subject = String(newSubject).replace(/-/g, " ");
         } else {
             form.value.subject = "";
         }
@@ -404,7 +404,6 @@ watch(
 const submitted = ref(false);
 
 const handleSubmit = async () => {
-    console.log("Form submitted:", form.value);
     submitted.value = true;
 
     // Reset form

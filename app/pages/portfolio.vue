@@ -157,48 +157,5 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
         </div>
       </div>
     </section>
-
-
-    <!-- Industries -->
-    <section class="py-24">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 class="text-4xl font-black text-lic-dark mb-16 tracking-tight text-center">
-          Industries Servis
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">Finance</h3>
-            <p class="text-gray-600">Banques, fintech, assurance avec compliance stricte</p>
-          </div>
-
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">E-commerce</h3>
-            <p class="text-gray-600">Retail en ligne, marketplaces, paiement mobile</p>
-          </div>
-
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">Santé</h3>
-            <p class="text-gray-600">Plateformes médicales, telemedicine, données patient</p>
-          </div>
-
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">Éducation</h3>
-            <p class="text-gray-600">Plateformes d'apprentissage, LMS, MOOC</p>
-          </div>
-
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">Immobilier</h3>
-            <p class="text-gray-600">PropTech, gestion immobilière, courtage</p>
-          </div>
-
-          <div class="bg-lic-light p-8 rounded-lg text-center">
-            <h3 class="text-2xl font-black text-lic-dark mb-2">Logistique</h3>
-            <p class="text-gray-600">Supply chain, tracking, management</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </div>
 </template>
