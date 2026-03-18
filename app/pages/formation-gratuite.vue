@@ -14,6 +14,36 @@ const getYouTubeId = (url) => {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
+const getImageAttrs = (imageUrl) => {
+  if (!imageUrl || !imageUrl.includes('images.unsplash.com')) {
+    return { srcset: undefined, sizes: undefined }
+  }
+
+  return generateResponsiveAttrs(imageUrl, 'card')
+}
+
+const handleThumbnailError = (event, youtubeId) => {
+  const img = event?.target
+  if (!img) return
+
+  const attempt = Number(img.dataset?.fallbackAttempt || '0')
+
+  if (attempt === 0 && youtubeId) {
+    img.dataset.fallbackAttempt = '1'
+    img.src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+    return
+  }
+
+  if (attempt === 1 && youtubeId) {
+    img.dataset.fallbackAttempt = '2'
+    img.src = `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
+    return
+  }
+
+  img.dataset.fallbackAttempt = '3'
+  img.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+}
+
 const withTimeout = async (promise, timeoutMs) => {
   let timeoutId
   const timeoutPromise = new Promise((_, reject) => {
@@ -190,10 +220,11 @@ useHead({
             <a :href="resource.link" target="_blank" class="block relative aspect-video overflow-hidden bg-gray-100">
               <img
                 :src="resource.image"
-                :srcset="generateResponsiveAttrs(resource.image, 'card').srcset"
-                :sizes="generateResponsiveAttrs(resource.image, 'card').sizes"
+                :srcset="getImageAttrs(resource.image).srcset"
+                :sizes="getImageAttrs(resource.image).sizes"
                 :alt="resource.title"
                 loading="lazy"
+                @error="(event) => handleThumbnailError(event, resource.youtubeId)"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>

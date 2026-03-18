@@ -9,17 +9,39 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const [oembedResponse, pageResponse] = await Promise.all([
-      // 1. Fetch Metadata via oEmbed (Fast, Public, Reliable for Title/Author)
-      fetch(`https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoId}&format=json`).then(res => res.json()).catch(() => null),
-      
-      // 2. Fetch Page HTML to scrape Duration (Hackier, but works without API Key)
-      fetch(`https://www.youtube.com/watch?v=${videoId}`, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        }
-      }).then(res => res.text()).catch(() => null)
+    const fetchWithTimeout = async (url: string, options: RequestInit, timeoutMs: number) => {
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), timeoutMs)
+
+      try {
+        return await fetch(url, {
+          ...options,
+          signal: controller.signal,
+        })
+      } finally {
+        clearTimeout(timeout)
+      }
+    }
+
+    const [oembedResult, pageResult] = await Promise.allSettled([
+      fetchWithTimeout(
+        `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoId}&format=json`,
+        {},
+        5000,
+      ).then((res) => (res.ok ? res.json() : null)),
+      fetchWithTimeout(
+        `https://www.youtube.com/watch?v=${videoId}`,
+        {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          },
+        },
+        6000,
+      ).then((res) => (res.ok ? res.text() : null)),
     ])
+
+    const oembedResponse = oembedResult.status === 'fulfilled' ? oembedResult.value : null
+    const pageResponse = pageResult.status === 'fulfilled' ? pageResult.value : null
 
     const parseDurationFromHtml = (html: string) => {
       const lengthSecondsMatch = html.match(/"lengthSeconds":"(\d+)"/)
@@ -71,7 +93,6 @@ export default defineEventHandler(async (event) => {
     }
 
   } catch (error) {
-    console.error('Server error fetching YouTube data:', error)
     return {
       title: 'Erreur de chargement',
       author: 'Unknown',
