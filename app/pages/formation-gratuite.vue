@@ -1,8 +1,13 @@
 <script setup>
-import { ArrowRight } from 'lucide-vue-next'; // Keep this for the arrow icon
-
 const { generateResponsiveAttrs } = useResponsiveImage()
 const { find } = useStrapi()
+
+const INITIAL_DELAY_MS = 200
+const REQUEST_TIMEOUT_MS = 10000
+const MAX_RETRIES = 2
+const RETRY_BASE_DELAY_MS = 2000
+const VIDEO_METADATA_TIMEOUT_MS = 5000
+const MAX_RESOURCES = 12
 
 // Function to extract YouTube ID from various YouTube URL formats
 const getYouTubeId = (url) => {
@@ -12,31 +17,46 @@ const getYouTubeId = (url) => {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
+const withTimeout = async (promise, timeoutMs) => {
+  let timeoutId
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error('Strapi request timeout')), timeoutMs)
+  })
+
+  try {
+    return await Promise.race([promise, timeoutPromise])
+  } finally {
+    clearTimeout(timeoutId)
+  }
+}
+
 // Fetch data from Strapi and then enrich with YouTube data
 const { data: strapiData, pending, error, refresh } = await useAsyncData('formation-videos', async () => {
-  // Artificial delay to show skeleton (User request)
-  await new Promise(resolve => setTimeout(resolve, 800));
+  await new Promise(resolve => setTimeout(resolve, INITIAL_DELAY_MS));
 
   // 1. Get links from Strapi with Retry Logic (Handle server wake-up delay)
   let videosRes;
-  const maxRetries = 10;
   let attempt = 0;
 
-  while (attempt < maxRetries) {
+  while (attempt <= MAX_RETRIES) {
     try {
-      videosRes = await find('resources', { fields: ['link', 'slug'], sort: 'publishedAt:desc' });
+      videosRes = await withTimeout(
+        find('resources', {
+          fields: ['link', 'slug'],
+          sort: 'publishedAt:desc',
+          pagination: { pageSize: MAX_RESOURCES },
+        }),
+        REQUEST_TIMEOUT_MS,
+      )
       break; // Success
     } catch (err) {
       attempt++;
-      console.warn(`Tentative de connexion au serveur ${attempt}/${maxRetries}...`);
 
-      if (attempt >= maxRetries) {
-        console.error('Server connection failed after multiple retries:', err);
+      if (attempt > MAX_RETRIES) {
         throw new Error(`Le serveur met plus de temps que prévu à répondre. Veuillez rafraîchir la page dans quelques instants.`);
       }
 
-      // Wait before retrying (increasing delay: 5s, 10s, 15s, then 20s for the rest)
-      const delay = Math.min(attempt * 5000, 20000);
+      const delay = Math.min(attempt * RETRY_BASE_DELAY_MS, 6000)
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
@@ -56,7 +76,9 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
     if (youtubeId) {
       try {
         // Call our internal server API to get details (oEmbed + Duration Scraper)
-        youtubeData = await $fetch(`/api/video-metadata?videoId=${youtubeId}`);
+        youtubeData = await $fetch(`/api/video-metadata?videoId=${youtubeId}`, {
+          timeout: VIDEO_METADATA_TIMEOUT_MS,
+        });
       } catch (err) {
         // Fallback thumbnail if API fails
         youtubeData.thumbnail = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
@@ -162,7 +184,7 @@ useHead({
             </button>
         </div>
 
-        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-else-if="displayedResources.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div 
             v-for="(resource, index) in displayedResources" 
             :key="resource.id || index" 
@@ -224,6 +246,13 @@ useHead({
               </div>
             </div>
           </div>
+        </div>
+
+        <div v-else class="text-center py-12 bg-gray-50 rounded-xl border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Aucune ressource pour le moment</h3>
+          <p class="text-gray-600 max-w-md mx-auto">
+            Les vidéos apparaîtront ici dès qu'elles seront publiées dans Strapi.
+          </p>
         </div>
       </div>
     </section>

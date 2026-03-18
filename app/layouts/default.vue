@@ -11,15 +11,6 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false
 }
-
-// Ensure touch events are properly handled on mobile
-const handleTouchEvent = (e) => {
-  // Prevent default only if necessary, allowing normal click handling
-  if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
-    e.preventDefault?.()
-    e.target.closest('button')?.click()
-  }
-}
 </script>
 
 <template>
@@ -29,7 +20,7 @@ const handleTouchEvent = (e) => {
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <!-- Logo -->
-          <NuxtLink to="/" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
+          <NuxtLink to="/" aria-label="Retour à l'accueil" class="flex items-center gap-2 hover:opacity-70 transition" @click="closeMobileMenu">
             <img :src="licLogo" width="133" height="48" alt="LIC Logo" class="h-12" style="width: 132.87px; height: 48px; aspect-ratio: 1124/406;" />
           </NuxtLink>
 
@@ -57,7 +48,7 @@ const handleTouchEvent = (e) => {
 
           <div class="flex items-center gap-3">
              <!-- Demo Button (Primary) -->
-            <NuxtLink to="/contact?subject=Demander une demo#contact-form" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
+            <NuxtLink to="/contact?subject=demander-une-demo#contact-form" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
               Demander une Démo
             </NuxtLink>
 
@@ -98,7 +89,7 @@ const handleTouchEvent = (e) => {
           Formation Gratuite
         </NuxtLink>
         <div class="flex flex-col gap-3 mt-4">
-          <NuxtLink to="/contact?subject=Demander une demo#contact-form" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
+          <NuxtLink to="/contact?subject=demander-une-demo#contact-form" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
             Demander une Démo
           </NuxtLink>
           <NuxtLink to="/contact#contact-form" class="text-center text-lic-blue font-bold text-sm px-6 py-3 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white" @click="closeMobileMenu">
@@ -127,9 +118,9 @@ const handleTouchEvent = (e) => {
               L'expertise IT au service de l'Afrique Digitale. Transformation digitale, Formation, Développement, Cloud & DevOps.
             </p>
             <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">f</a>
-              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">in</a>
-              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">@</a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">f</a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">in</a>
+              <a href="mailto:contact@loitconsulting.com" aria-label="Email" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 text-white flex items-center justify-center transition text-sm font-bold">@</a>
             </div>
           </div>
 
@@ -137,10 +128,10 @@ const handleTouchEvent = (e) => {
           <div>
             <h4 class="text-white font-black text-sm mb-6 tracking-widest">SERVICES</h4>
             <ul class="space-y-3 text-sm">
-              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Formation IT</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Développement</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Cloud & DevOps</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-lic-orange-dark transition">Conseil Tech</a></li>
+              <li><NuxtLink to="/services" class="text-gray-300 hover:text-lic-orange-dark transition">Formation IT</NuxtLink></li>
+              <li><NuxtLink to="/services" class="text-gray-300 hover:text-lic-orange-dark transition">Développement</NuxtLink></li>
+              <li><NuxtLink to="/services" class="text-gray-300 hover:text-lic-orange-dark transition">Cloud & DevOps</NuxtLink></li>
+              <li><NuxtLink to="/services" class="text-gray-300 hover:text-lic-orange-dark transition">Conseil Tech</NuxtLink></li>
             </ul>
           </div>
 
@@ -183,9 +174,9 @@ const handleTouchEvent = (e) => {
               © 2025 LO IT CONSULTING. Tous droits réservés.
             </p>
             <div class="flex gap-6 text-xs">
-              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Politique de Confidentialité</a>
-              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Conditions d'Utilisation</a>
-              <a href="#" class="text-gray-400 hover:text-lic-orange-dark transition">Mentions Légales</a>
+              <NuxtLink to="/contact" class="text-gray-400 hover:text-lic-orange-dark transition">Politique de Confidentialité</NuxtLink>
+              <NuxtLink to="/contact" class="text-gray-400 hover:text-lic-orange-dark transition">Conditions d'Utilisation</NuxtLink>
+              <NuxtLink to="/contact" class="text-gray-400 hover:text-lic-orange-dark transition">Mentions Légales</NuxtLink>
             </div>
           </div>
         </div>

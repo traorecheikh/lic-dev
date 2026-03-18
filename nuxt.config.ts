@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     'nuxt-schema-org',
   ],
+  css: ['~/assets/css/main.css'],
 
   site: {
     url: 'https://lo-consulting.com',
