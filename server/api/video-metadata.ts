@@ -23,33 +23,72 @@ export default defineEventHandler(async (event) => {
       }
     }
 
+    const fetchTextWithRetries = async (url: string, options: RequestInit, timeoutMs: number, maxRetries: number) => {
+      let lastError: unknown = null
+
+      for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        try {
+          const response = await fetchWithTimeout(url, options, timeoutMs)
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`)
+          }
+          return await response.text()
+        } catch (error) {
+          lastError = error
+          if (attempt < maxRetries) {
+            await new Promise((resolve) => setTimeout(resolve, 400 * (attempt + 1)))
+          }
+        }
+      }
+
+      throw lastError
+    }
+
     const [oembedResult, pageResult] = await Promise.allSettled([
       fetchWithTimeout(
         `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${videoId}&format=json`,
         {},
         5000,
       ).then((res) => (res.ok ? res.json() : null)),
-      fetchWithTimeout(
-        `https://www.youtube.com/watch?v=${videoId}`,
-        {
+      (async () => {
+        const requestOptions = {
           headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept-Language': 'en-US,en;q=0.9',
           },
-        },
-        6000,
-      ).then((res) => (res.ok ? res.text() : null)),
+        }
+
+        const candidates = [
+          `https://www.youtube.com/watch?v=${videoId}`,
+          `https://m.youtube.com/watch?v=${videoId}`,
+          `https://www.youtube.com/embed/${videoId}`,
+        ]
+
+        for (const url of candidates) {
+          try {
+            const html = await fetchTextWithRetries(url, requestOptions, 12000, 1)
+            if (html.includes('lengthSeconds') || html.includes('approxDurationMs') || html.includes('length_seconds')) {
+              return html
+            }
+          } catch {
+            // Try next candidate URL.
+          }
+        }
+
+        return null
+      })(),
     ])
 
     const oembedResponse = oembedResult.status === 'fulfilled' ? oembedResult.value : null
     const pageResponse = pageResult.status === 'fulfilled' ? pageResult.value : null
 
     const parseDurationFromHtml = (html: string) => {
-      const lengthSecondsMatch = html.match(/"lengthSeconds":"(\d+)"/)
+      const lengthSecondsMatch = html.match(/"lengthSeconds":"?(\d+)"?/) || html.match(/"lengthSeconds":(\d+)/)
       if (lengthSecondsMatch?.[1]) {
         return parseInt(lengthSecondsMatch[1], 10)
       }
 
-      const approxDurationMatch = html.match(/"approxDurationMs":"(\d+)"/)
+      const approxDurationMatch = html.match(/"approxDurationMs":"?(\d+)"?/) || html.match(/"approxDurationMs":(\d+)/)
       if (approxDurationMatch?.[1]) {
         return Math.floor(parseInt(approxDurationMatch[1], 10) / 1000)
       }
