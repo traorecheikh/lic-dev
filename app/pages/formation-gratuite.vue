@@ -6,12 +6,38 @@ const MAX_RETRIES = 2
 const RETRY_BASE_DELAY_MS = 2000
 const VIDEO_METADATA_TIMEOUT_MS = 5000
 
-// Function to extract YouTube ID from various YouTube URL formats
-const getYouTubeId = (url) => {
-  if (!url) return null;
-  const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-  const match = url.match(regExp);
-  return (match && match[2].length === 11) ? match[2] : null;
+const getYouTubeId = (rawUrl) => {
+  if (!rawUrl) return null
+
+  try {
+    const parsed = new URL(rawUrl)
+    const host = parsed.hostname.replace('www.', '')
+
+    if (host === 'youtu.be') {
+      const id = parsed.pathname.split('/').filter(Boolean)[0]
+      return id?.length === 11 ? id : null
+    }
+
+    if (host === 'youtube.com' || host.endsWith('.youtube.com')) {
+      if (parsed.pathname === '/watch') {
+        const id = parsed.searchParams.get('v')
+        return id?.length === 11 ? id : null
+      }
+
+      const segments = parsed.pathname.split('/').filter(Boolean)
+      const embedIndex = segments.findIndex((segment) => segment === 'embed' || segment === 'shorts' || segment === 'v')
+
+      if (embedIndex >= 0 && segments[embedIndex + 1]?.length === 11) {
+        return segments[embedIndex + 1]
+      }
+    }
+  } catch {
+    // Fallback regex for malformed URLs.
+  }
+
+  const regexFallback = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([A-Za-z0-9_-]{11})/
+  const match = rawUrl.match(regexFallback)
+  return match?.[1] || null
 }
 
 const getImageAttrs = (imageUrl) => {
@@ -107,8 +133,12 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
         });
       } catch (err) {
         // Fallback thumbnail if API fails
-        youtubeData.thumbnail = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+        youtubeData.thumbnail = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
       }
+    }
+
+    if (typeof youtubeData.thumbnail === 'string' && youtubeData.thumbnail.includes('maxresdefault')) {
+      youtubeData.thumbnail = youtubeData.thumbnail.replace('maxresdefault', 'hqdefault')
     }
     
     return {
