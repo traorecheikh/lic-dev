@@ -117,13 +117,13 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
       return [];
   }
 
-  // 2. Enrich each video with YouTube data (Title, Duration, etc.)
+  // 2. Enrich each video with YouTube data (Title, Author, Thumbnail)
   const processedVideos = await Promise.all(videosRes.data.map(async (v) => {
     const resourceLink = v.attributes?.link || v.link;
     const resourceSlug = v.attributes?.slug || v.slug;
     const youtubeId = getYouTubeId(resourceLink);
 
-    let youtubeData = { title: 'Titre de vidéo', author: '', duration: 'N/A', thumbnail: '' };
+    let youtubeData = { title: 'Titre de vidéo', author: '', thumbnail: '' };
 
     if (youtubeId) {
       try {
@@ -144,7 +144,6 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
     return {
       id: v.id,
       category: 'Vidéo',
-      duration: youtubeData.duration || 'N/A',
       title: youtubeData.title || 'Titre de vidéo',
       description: youtubeData.author ? `Vidéo de ${youtubeData.author}` : 'Description non disponible',
       image: youtubeData.thumbnail || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
@@ -272,14 +271,6 @@ useHead({
               <div class="absolute top-4 left-4 flex gap-2">
                  <span class="bg-lic-dark/90 text-white text-xs font-bold px-2.5 py-1 rounded-md backdrop-blur-sm">
                   {{ resource.category }}
-                </span>
-              </div>
-              <div class="absolute bottom-4 right-4">
-                <span class="bg-black/70 text-white text-xs font-medium px-2 py-1 rounded backdrop-blur-sm flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {{ resource.duration }}
                 </span>
               </div>
             </a>
