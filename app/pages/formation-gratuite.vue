@@ -1,13 +1,10 @@
 <script setup>
 const { generateResponsiveAttrs } = useResponsiveImage()
-const { find } = useStrapi()
-
 const INITIAL_DELAY_MS = 200
 const REQUEST_TIMEOUT_MS = 10000
 const MAX_RETRIES = 2
 const RETRY_BASE_DELAY_MS = 2000
 const VIDEO_METADATA_TIMEOUT_MS = 5000
-const MAX_RESOURCES = 12
 
 // Function to extract YouTube ID from various YouTube URL formats
 const getYouTubeId = (url) => {
@@ -40,19 +37,18 @@ const { data: strapiData, pending, error, refresh } = await useAsyncData('format
 
   while (attempt <= MAX_RETRIES) {
     try {
-      videosRes = await withTimeout(
-        find('resources', {
-          fields: ['link', 'slug'],
-          sort: 'publishedAt:desc',
-          pagination: { pageSize: MAX_RESOURCES },
-        }),
-        REQUEST_TIMEOUT_MS,
-      )
+      videosRes = await withTimeout($fetch('/api/resources'), REQUEST_TIMEOUT_MS)
       break; // Success
     } catch (err) {
       attempt++;
 
       if (attempt > MAX_RETRIES) {
+        const statusCode = err?.statusCode || err?.response?.status
+
+        if (statusCode === 401 || statusCode === 403) {
+          throw new Error('Accès refusé par Strapi (403). Activez la permission Public find sur resources ou configurez STRAPI_TOKEN côté serveur.')
+        }
+
         throw new Error(`Le serveur met plus de temps que prévu à répondre. Veuillez rafraîchir la page dans quelques instants.`);
       }
 

@@ -21,23 +21,43 @@ export default defineEventHandler(async (event) => {
       }).then(res => res.text()).catch(() => null)
     ])
 
+    const parseDurationFromHtml = (html: string) => {
+      const lengthSecondsMatch = html.match(/"lengthSeconds":"(\d+)"/)
+      if (lengthSecondsMatch?.[1]) {
+        return parseInt(lengthSecondsMatch[1], 10)
+      }
+
+      const approxDurationMatch = html.match(/"approxDurationMs":"(\d+)"/)
+      if (approxDurationMatch?.[1]) {
+        return Math.floor(parseInt(approxDurationMatch[1], 10) / 1000)
+      }
+
+      const legacyLengthMatch = html.match(/"length_seconds":"(\d+)"/)
+      if (legacyLengthMatch?.[1]) {
+        return parseInt(legacyLengthMatch[1], 10)
+      }
+
+      return null
+    }
+
+    const formatDuration = (seconds: number) => {
+      const h = Math.floor(seconds / 3600)
+      const m = Math.floor((seconds % 3600) / 60)
+      const s = seconds % 60
+
+      if (h > 0) {
+        return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
+      }
+
+      return `${m}:${s.toString().padStart(2, '0')}`
+    }
+
     // Process Duration from HTML
     let duration = 'N/A'
     if (pageResponse) {
-      // Look for "lengthSeconds":"123" pattern in the HTML
-      const match = pageResponse.match(/"lengthSeconds":"(\d+)"/)
-      if (match && match[1]) {
-        const seconds = parseInt(match[1], 10)
-        const h = Math.floor(seconds / 3600)
-        const m = Math.floor((seconds % 3600) / 60)
-        const s = seconds % 60
-        
-        // Format: H:MM:SS or MM:SS
-        if (h > 0) {
-          duration = `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
-        } else {
-          duration = `${m}:${s.toString().padStart(2, '0')}`
-        }
+      const seconds = parseDurationFromHtml(pageResponse)
+      if (seconds !== null) {
+        duration = formatDuration(seconds)
       }
     }
 
@@ -46,8 +66,8 @@ export default defineEventHandler(async (event) => {
       author: oembedResponse?.author_name || 'Auteur inconnu',
       // Use the scraped duration
       duration: duration,
-      // Generate high-res thumbnail URL statically (predictable)
-      thumbnail: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+      // oEmbed thumbnail is generally more reliable than maxresdefault fallback
+      thumbnail: oembedResponse?.thumbnail_url || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     }
 
   } catch (error) {
