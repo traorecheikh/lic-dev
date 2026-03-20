@@ -1,7 +1,7 @@
 <script setup>
-const projectImg1 = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Finance/Mobile Banking
-const projectImg2 = 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // E-commerce
-const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Real Estate
+import licShopImg from '~/assets/projects/lic-shop.png'
+import gnawalmaImg from '~/assets/projects/gnawalma.png'
+import licFitImg from '~/assets/projects/licfit.png'
 </script>
 
 <template>
@@ -53,30 +53,30 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
           <!-- Case Study 1 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
-              <img :src="projectImg1" width="800" height="600" alt="Banque Africaine Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="licShopImg" width="800" height="600" alt="LIC Shop Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
-              <h2 class="text-3xl font-black text-lic-dark mb-4">Banque Africaine</h2>
+              <h2 class="text-3xl font-black text-lic-dark mb-4">LIC Shop</h2>
               <p class="text-gray-600 mb-6 leading-relaxed">
-                Migration complète de l'infrastructure on-premise vers AWS avec zéro downtime. Augmentation de performance de 300%, réduction des coûts de 40%.
+                Plateforme e-commerce complète pour le marché sénégalais. Admin Laravel + app mobile Flutter, paiements Wave/OM/COD, notifications et suivi commandes.
               </p>
               <div class="grid grid-cols-2 gap-4 mb-8">
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Durée</p>
-                  <p class="font-bold text-lic-dark">6 mois</p>
+                  <p class="font-bold text-lic-dark">En cours (MVP)</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Équipe</p>
-                  <p class="font-bold text-lic-dark">12 ingénieurs</p>
+                  <p class="font-bold text-lic-dark">Équipe LIC</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Technos</p>
-                  <p class="font-bold text-lic-dark">AWS, Kubernetes</p>
+                  <p class="font-bold text-lic-dark">Laravel 12, Vue 3, Flutter</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Impact</p>
-                  <p class="font-bold text-lic-dark">40% économie</p>
+                  <p class="font-bold text-lic-dark">Paiements mobile money intégrés</p>
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
@@ -89,26 +89,26 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
-              <h2 class="text-3xl font-black text-lic-dark mb-4">E-commerce Sénégalais</h2>
+              <h2 class="text-3xl font-black text-lic-dark mb-4">Gnawalma</h2>
               <p class="text-gray-600 mb-6 leading-relaxed">
-                Développement de plateforme e-commerce full-stack avec paiement mobile. Augmentation du chiffre d'affaires de 250% en 12 mois.
+                Application mobile pour ateliers de couture, suivi projets/clients, stocks tissus, facturation, offline-first.
               </p>
               <div class="grid grid-cols-2 gap-4 mb-8">
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Durée</p>
-                  <p class="font-bold text-lic-dark">4 mois</p>
+                  <p class="font-bold text-lic-dark">MVP livré</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Équipe</p>
-                  <p class="font-bold text-lic-dark">8 développeurs</p>
+                  <p class="font-bold text-lic-dark">Équipe LIC</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Technos</p>
-                  <p class="font-bold text-lic-dark">React, Node.js</p>
+                  <p class="font-bold text-lic-dark">Flutter, Riverpod, Isar</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Impact</p>
-                  <p class="font-bold text-lic-dark">250% croissance</p>
+                  <p class="font-bold text-lic-dark">Digitalisation des ateliers</p>
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
@@ -116,37 +116,37 @@ const projectImg3 = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?i
               </NuxtLink>
             </div>
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl order-2 md:order-1">
-              <img :src="projectImg2" width="800" height="600" alt="E-commerce Sénégalais Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="gnawalmaImg" width="800" height="600" alt="Gnawalma Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
           </div>
 
           <!-- Case Study 3 -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="h-80 rounded-lg border-l-4 border-lic-orange overflow-hidden shadow-xl">
-              <img :src="projectImg3" width="800" height="600" alt="Startup PropTech Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
+              <img :src="licFitImg" width="800" height="600" alt="Lic'Fit Case Study" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" />
             </div>
             <div>
               <p class="text-sm font-bold text-lic-orange tracking-widest mb-2">ÉTUDE DE CAS</p>
-              <h2 class="text-3xl font-black text-lic-dark mb-4">Startup PropTech</h2>
+              <h2 class="text-3xl font-black text-lic-dark mb-4">Lic'Fit</h2>
               <p class="text-gray-600 mb-6 leading-relaxed">
-                Développement d'application mobile immobilière avec matching IA. Levée de fonds réussie de 1.2 Mrd FCFA, 50k utilisateurs actifs.
+                Gestion des abonnements, check-in QR, maintenance équipements, notifications, mode hors-ligne.
               </p>
               <div class="grid grid-cols-2 gap-4 mb-8">
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Durée</p>
-                  <p class="font-bold text-lic-dark">5 mois</p>
+                  <p class="font-bold text-lic-dark">Phase spécifications</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Équipe</p>
-                  <p class="font-bold text-lic-dark">10 ingénieurs</p>
+                  <p class="font-bold text-lic-dark">Équipe LIC</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Technos</p>
-                  <p class="font-bold text-lic-dark">Flutter, Python</p>
+                  <p class="font-bold text-lic-dark">Mobile, Offline-first, QR</p>
                 </div>
                 <div>
                   <p class="text-sm text-gray-500 mb-1">Impact</p>
-                  <p class="font-bold text-lic-dark">1.2 Mrd FCFA levés</p>
+                  <p class="font-bold text-lic-dark">Prêt pour pilotes Dakar</p>
                 </div>
               </div>
               <NuxtLink to="/contact" class="text-lic-blue hover:text-lic-orange font-bold transition">
