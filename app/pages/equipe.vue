@@ -43,7 +43,7 @@
     <!-- Team Grid -->
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <!-- Team Member 1: Makhmadane LO -->
           <div class="group">
@@ -73,36 +73,6 @@
             <h3 class="text-xl font-black text-lic-dark">Cheikh Tidiane TRAORÉ</h3>
             <p class="text-lic-orange font-bold mb-2">Développeur Full Stack</p>
             <p class="text-gray-600 text-sm">Maître des technologies frontend et backend, il crée des applications performantes et évolutives.</p>
-          </div>
-
-          <!-- Team Member 3: Placeholder -->
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/5] mb-4">
-              <img src="@/assets/team2.jpg" alt="Membre de l'équipe 3" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                 <div class="text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <p class="font-medium">"Chaque défi est une opportunité d'apprendre."</p>
-                </div>
-              </div>
-            </div>
-            <h3 class="text-xl font-black text-lic-dark">Membre de l'équipe 3</h3>
-            <p class="text-lic-blue font-bold mb-2">Spécialiste Cloud</p>
-            <p class="text-gray-600 text-sm">Architecte d'infrastructures cloud fiables et sécurisées, il garantit la performance de nos solutions.</p>
-          </div>
-
-          <!-- Team Member 4: Placeholder -->
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/5] mb-4">
-              <img src="@/assets/team3.jpg" alt="Membre de l'équipe 4" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                 <div class="text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <p class="font-medium">"L'agilité est la clé du succès de nos projets."</p>
-                </div>
-              </div>
-            </div>
-            <h3 class="text-xl font-black text-lic-dark">Membre de l'équipe 4</h3>
-            <p class="text-lic-orange font-bold mb-2">Chef de Projet Agile</p>
-            <p class="text-gray-600 text-sm">Orchestrateur de nos projets, il assure une collaboration fluide et des livraisons réussies.</p>
           </div>
 
         </div>
