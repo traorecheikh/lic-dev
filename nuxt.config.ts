@@ -24,6 +24,16 @@ export default defineNuxtConfig({
     version: 'v4',
   },
 
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY || '',
+    resendFrom: process.env.RESEND_FROM || 'candidatures@lo-consulting.com',
+    smtpHost: process.env.SMTP_HOST || 'smtp.gmail.com',
+    smtpPort: parseInt(process.env.SMTP_PORT || '587'),
+    smtpUser: process.env.SMTP_USER || '',
+    smtpPass: process.env.SMTP_PASS || '',
+    contactEmail: process.env.CONTACT_EMAIL || '',
+  },
+
   vite: {
     build: {
       cssCodeSplit: true,
@@ -116,12 +126,13 @@ export default defineNuxtConfig({
     '/equipe': { prerender: true },
     '/contact': { prerender: true },
     '/formation-gratuite': { prerender: true },
+    '/offres': { prerender: true },
   },
 
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/services', '/portfolio', '/equipe', '/contact', '/formation-gratuite'],
+      routes: ['/', '/about', '/services', '/portfolio', '/equipe', '/contact', '/formation-gratuite', '/offres'],
     },
     minify: true,
     compressPublicAssets: {

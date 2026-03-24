@@ -44,6 +44,9 @@ const closeMobileMenu = () => {
             <NuxtLink to="/formation-gratuite" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Formation Gratuite
             </NuxtLink>
+            <NuxtLink to="/offres" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+              Carrières
+            </NuxtLink>
           </nav>
 
           <div class="flex items-center gap-3">
@@ -87,6 +90,9 @@ const closeMobileMenu = () => {
         </NuxtLink>
         <NuxtLink to="/formation-gratuite" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
           Formation Gratuite
+        </NuxtLink>
+        <NuxtLink to="/offres" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
+          Carrières
         </NuxtLink>
         <div class="flex flex-col gap-3 mt-4">
           <NuxtLink to="/contact?subject=demander-une-demo#contact-form" class="text-center text-white font-bold text-sm px-6 py-3 rounded-lg transition hover:opacity-90" style="background-color: #D84315;" @click="closeMobileMenu">
