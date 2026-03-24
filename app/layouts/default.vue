@@ -25,43 +25,43 @@ const closeMobileMenu = () => {
           </NuxtLink>
 
           <!-- Desktop Navigation Menu -->
-          <nav class="hidden md:flex items-center gap-8">
-            <NuxtLink to="/" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+          <nav class="hidden lg:flex items-center gap-5">
+            <NuxtLink to="/" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Accueil
             </NuxtLink>
-            <NuxtLink to="/about" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/about" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               À Propos
             </NuxtLink>
-            <NuxtLink to="/services" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/services" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Services
             </NuxtLink>
-            <NuxtLink to="/equipe" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/equipe" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Équipe
             </NuxtLink>
-            <NuxtLink to="/portfolio" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/portfolio" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Nos Réalisations
             </NuxtLink>
-            <NuxtLink to="/formation-gratuite" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/formation-gratuite" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Formation Gratuite
             </NuxtLink>
-            <NuxtLink to="/offres" class="text-gray-700 hover:text-gray-900 font-medium transition text-sm">
+            <NuxtLink to="/offres" class="whitespace-nowrap text-gray-700 hover:text-gray-900 font-medium transition text-sm">
               Carrières
             </NuxtLink>
           </nav>
 
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
              <!-- Demo Button (Primary) -->
-            <NuxtLink to="/contact?subject=demander-une-demo#contact-form" class="hidden sm:block text-white font-bold text-sm px-5 py-2.5 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
+            <NuxtLink to="/contact?subject=demander-une-demo#contact-form" class="hidden lg:block whitespace-nowrap text-white font-bold text-sm px-4 py-2 rounded-lg transition hover:opacity-90" style="background-color: #D84315;">
               Demander une Démo
             </NuxtLink>
 
             <!-- Contact Button (Secondary - Outlined) -->
-            <NuxtLink to="/contact#contact-form" class="hidden sm:block text-lic-blue font-bold text-sm px-5 py-2.5 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white">
+            <NuxtLink to="/contact#contact-form" class="hidden lg:block whitespace-nowrap text-lic-blue font-bold text-sm px-4 py-2 rounded-lg border-2 border-lic-blue transition hover:bg-lic-blue hover:text-white">
               Nous Contacter
             </NuxtLink>
 
             <!-- Mobile Menu Button -->
-            <button @click="toggleMobileMenu" aria-label="Ouvrir le menu" class="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
+            <button @click="toggleMobileMenu" aria-label="Ouvrir le menu" class="lg:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -72,7 +72,7 @@ const closeMobileMenu = () => {
       </div>
 
       <!-- Mobile Menu Overlay -->
-      <div v-if="mobileMenuOpen" class="md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-200 shadow-lg py-4 px-6 flex flex-col gap-4 z-40">
+      <div v-if="mobileMenuOpen" class="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-200 shadow-lg py-4 px-6 flex flex-col gap-4 z-40">
         <NuxtLink to="/" class="text-gray-700 hover:text-orange-500 font-medium py-2 border-b border-gray-100" @click="closeMobileMenu">
           Accueil
         </NuxtLink>
