@@ -88,10 +88,17 @@ export default defineNuxtConfig({
           type: 'image/jpeg',
           fetchpriority: 'high',
         },
-        // Google Fonts - non-blocking load with swap
+        // Google Fonts - non-blocking: loads after paint, no render blocking
+        {
+          rel: 'preload',
+          as: 'style',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
+        },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
+          media: 'print',
+          onload: "this.media='all'",
         },
       ],
     },

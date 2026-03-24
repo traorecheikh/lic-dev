@@ -12,11 +12,7 @@ import sgLogo from '~/assets/partners/sg.png'
 import cbaoLogo from '~/assets/partners/cbao.png'
 import auchanLogo from '~/assets/partners/auchan.png'
 import canalLogo from '~/assets/partners/canal.png'
-import licShopImg from '~/assets/projects/lic-shop.png'
-import gnawalmaImg from '~/assets/projects/gnawalma.png'
-import licFitImg from '~/assets/projects/licfit.png'
-
-const heroImg = 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+const heroImg = 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0'
 
 const { animateOnIntersection } = useRollingNumbers()
 
@@ -313,7 +309,7 @@ onMounted(() => {
             <div ref="scrollContainer" class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
               <!-- Project 1 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                <img :src="licShopImg" alt="LIC Shop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <NuxtImg src="/img/lic-shop.png" alt="LIC Shop" format="webp" quality="75" width="400" height="225" sizes="85vw md:400px" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">E-commerce</span>
                   <h3 class="text-white text-xl font-bold">LIC Shop — Marketplace mobile</h3>
@@ -321,7 +317,7 @@ onMounted(() => {
               </div>
               <!-- Project 2 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                <img :src="gnawalmaImg" alt="Gnawalma" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <NuxtImg src="/img/gnawalma.png" alt="Gnawalma" format="webp" quality="75" width="400" height="225" sizes="85vw md:400px" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Artisanat / Couture</span>
                   <h3 class="text-white text-xl font-bold">Gnawalma — Gestion d’atelier</h3>
@@ -329,7 +325,7 @@ onMounted(() => {
               </div>
               <!-- Project 3 -->
               <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-2xl aspect-video cursor-pointer">
-                 <img :src="licFitImg" alt="Lic'Fit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <NuxtImg src="/img/licfit.png" alt="Lic'Fit" format="webp" quality="75" width="400" height="225" sizes="85vw md:400px" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span class="text-lic-orange-dark text-xs font-bold tracking-wider uppercase mb-2">Sport / Fitness</span>
                   <h3 class="text-white text-xl font-bold">Lic’Fit — Gestion de salles de sport</h3>
@@ -354,7 +350,7 @@ onMounted(() => {
         
         <div class="relative flex overflow-x-hidden group">
             <div class="py-4 animate-marquee whitespace-nowrap flex items-center gap-32 px-16 min-w-full w-max">
-                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
+                <img v-for="(logo, index) in partners" :key="index" :src="logo.url" width="150" height="96" :alt="logo.name" loading="lazy" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
                  <!-- Duplicate for seamless loop -->
                 <img v-for="(logo, index) in partners" :key="'dup1-' + index" :src="logo.url" width="150" height="96" :alt="logo.name" class="h-24 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 transform hover:scale-110" />
             </div>
