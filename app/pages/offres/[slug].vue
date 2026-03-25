@@ -54,9 +54,6 @@ const offre = computed(() => {
     type_emploi: d.type_emploi || d.attributes?.type_emploi,
     statut: d.statut || d.attributes?.statut || 'ouvert',
     contenu: d.contenu || d.attributes?.contenu,
-    processus: d.processus || d.attributes?.processus,
-    delai_reponse: d.delai_reponse || d.attributes?.delai_reponse,
-    jours_offre: d.jours_offre ?? d.attributes?.jours_offre,
   }
 })
 
@@ -364,18 +361,6 @@ const resetForm = () => {
                     <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">Type d'emploi</p>
                     <p class="text-gray-700">{{ offre.type_emploi }}</p>
                   </div>
-                  <div v-if="offre.delai_reponse">
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">Du temps pour répondre</p>
-                    <p class="text-gray-700">{{ offre.delai_reponse }}</p>
-                  </div>
-                  <div v-if="offre.processus">
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">Processus</p>
-                    <div class="prose-mini" v-html="renderMd(offre.processus)"></div>
-                  </div>
-                  <div v-if="offre.jours_offre">
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">Jours pour recevoir une offre</p>
-                    <p class="text-gray-700">{{ offre.jours_offre }} jour{{ offre.jours_offre > 1 ? 's' : '' }} après un entretien</p>
-                  </div>
                 </div>
 
               </div>
@@ -426,17 +411,5 @@ const resetForm = () => {
 
 .prose-content :deep(strong) {
   @apply font-bold text-lic-dark;
-}
-
-.prose-mini :deep(p) {
-  @apply text-gray-700 text-sm leading-relaxed mb-1;
-}
-
-.prose-mini :deep(ul) {
-  @apply list-disc pl-4 space-y-0.5;
-}
-
-.prose-mini :deep(li) {
-  @apply text-gray-700 text-sm;
 }
 </style>

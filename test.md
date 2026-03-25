@@ -12,10 +12,8 @@
 | `slug`          | *(auto-généré depuis le titre)* |
 | `localisation`  | Dakar, Sénégal                |
 | `departement`   | Ingénierie Logicielle *(picker)* |
-| `type_emploi`   | CDI                           |
+| `type_emploi`   | CDI *(picker: CDI / CDD / Stage / Alternance / Freelance / Mission)* |
 | `statut`        | ouvert *(picker)*             |
-| `delai_reponse` | 5 à 7 jours ouvrables         |
-| `jours_offre`   | 7                             |
 
 ---
 
@@ -77,14 +75,3 @@ Vous intégrerez une équipe pluridisciplinaire chargée de concevoir, développ
 - Locaux modernes au cœur de **Dakar Plateau**
 ```
 
----
-
-## Champ : `processus` (richtext — affiché dans la sidebar)
-
-```
-1. Présélection CV (48 h)
-2. Entretien RH en visio (30 min)
-3. Test technique à distance (2 h)
-4. Entretien technique avec le CTO (1 h)
-5. Offre & intégration
-```
