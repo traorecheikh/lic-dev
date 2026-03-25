@@ -53,12 +53,7 @@ const offre = computed(() => {
     departement: d.departement || d.attributes?.departement,
     type_emploi: d.type_emploi || d.attributes?.type_emploi,
     statut: d.statut || d.attributes?.statut || 'ouvert',
-    description: d.description || d.attributes?.description,
-    responsabilites: d.responsabilites || d.attributes?.responsabilites,
-    competences: d.competences || d.attributes?.competences,
-    agreable_avoir: d.agreable_avoir || d.attributes?.agreable_avoir,
-    points_forts: d.points_forts || d.attributes?.points_forts,
-    offres_entreprise: d.offres_entreprise || d.attributes?.offres_entreprise,
+    contenu: d.contenu || d.attributes?.contenu,
     processus: d.processus || d.attributes?.processus,
     delai_reponse: d.delai_reponse || d.attributes?.delai_reponse,
     jours_offre: d.jours_offre ?? d.attributes?.jours_offre,
@@ -222,38 +217,8 @@ const resetForm = () => {
           <div class="grid lg:grid-cols-3 gap-10 items-start">
 
             <!-- LEFT: Offer Details -->
-            <div class="lg:col-span-2 space-y-10">
-
-              <div v-if="offre.description" class="prose-section">
-                <h2 class="section-title">Description du poste</h2>
-                <div class="prose-content" v-html="renderMd(offre.description)"></div>
-              </div>
-
-              <div v-if="offre.responsabilites" class="prose-section">
-                <h2 class="section-title">Responsabilités</h2>
-                <div class="prose-content" v-html="renderMd(offre.responsabilites)"></div>
-              </div>
-
-              <div v-if="offre.competences" class="prose-section">
-                <h2 class="section-title">Compétences nécessaires</h2>
-                <div class="prose-content" v-html="renderMd(offre.competences)"></div>
-              </div>
-
-              <div v-if="offre.agreable_avoir" class="prose-section">
-                <h2 class="section-title">Agréable d'avoir</h2>
-                <div class="prose-content" v-html="renderMd(offre.agreable_avoir)"></div>
-              </div>
-
-              <div v-if="offre.points_forts" class="prose-section">
-                <h2 class="section-title">Qu'est-ce qui est génial dans ce travail ?</h2>
-                <div class="prose-content" v-html="renderMd(offre.points_forts)"></div>
-              </div>
-
-              <div v-if="offre.offres_entreprise" class="prose-section">
-                <h2 class="section-title">Ce que nous offrons</h2>
-                <div class="prose-content" v-html="renderMd(offre.offres_entreprise)"></div>
-              </div>
-
+            <div class="lg:col-span-2">
+              <div v-if="offre.contenu" class="prose-content" v-html="renderMd(offre.contenu)"></div>
             </div>
 
             <!-- RIGHT: Sticky Form + Info -->
@@ -451,9 +416,12 @@ const resetForm = () => {
 }
 
 .prose-content :deep(h1),
-.prose-content :deep(h2),
+.prose-content :deep(h2) {
+  @apply text-xl font-black text-lic-dark mb-4 mt-10 pb-3 border-b border-gray-100;
+}
+
 .prose-content :deep(h3) {
-  @apply font-black text-lic-dark mb-2 mt-4;
+  @apply font-black text-lic-dark mb-2 mt-6;
 }
 
 .prose-content :deep(strong) {
