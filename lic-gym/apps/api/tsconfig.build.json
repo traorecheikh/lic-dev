@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "incremental": false,
+    "paths": {
+      "@gym/types": ["../../packages/types/dist/index.d.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "test", "**/*.spec.ts"]
+}

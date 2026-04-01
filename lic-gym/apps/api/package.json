@@ -1,0 +1,38 @@
+{
+  "name": "@gym/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nest start --watch",
+    "prebuild": "pnpm prisma:generate",
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prisma:generate": "prisma generate --config ../../prisma.config.ts",
+    "prisma:migrate": "prisma migrate dev --config ../../prisma.config.ts",
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "worker": "ts-node src/worker.ts"
+  },
+  "dependencies": {
+    "@gym/types": "workspace:*",
+    "@nestjs/common": "^11.1.17",
+    "@nestjs/config": "^4.0.3",
+    "@nestjs/core": "^11.1.17",
+    "@nestjs/platform-express": "^11.1.17",
+    "@prisma/client": "^7.6.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.17",
+    "@nestjs/schematics": "^11.0.10",
+    "@nestjs/testing": "^11.1.17",
+    "@types/node": "^25.5.0",
+    "prisma": "^7.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  }
+}
